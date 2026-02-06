@@ -46,3 +46,6 @@ extracted-assets
 
 # backup files
 *.backup
+
+# reference/downloaded production assets
+/reference/
