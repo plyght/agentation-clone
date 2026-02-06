@@ -136,14 +136,7 @@ export default function Home() {
             <div className="case-study">
               <div className="case-study-header">
                 <p className="case-study-metric">$1.5M/mo in new policies</p>
-                <p className="case-study-industry">Insurance Agency</p>
               </div>
-              <p className="case-study-detail">
-                <strong>Challenge:</strong> Old platform was clunky, expensive, built for different business type.
-              </p>
-              <p className="case-study-detail">
-                <strong>Solution:</strong> Custom CRM handling policy management, team hierarchy, client tracking.
-              </p>
               <p className="case-study-quote">
                 "Faster, cheaper, built for us."
               </p>
@@ -151,14 +144,7 @@ export default function Home() {
             <div className="case-study">
               <div className="case-study-header">
                 <p className="case-study-metric">7-figure brand portfolio</p>
-                <p className="case-study-industry">E-commerce Brand</p>
               </div>
-              <p className="case-study-detail">
-                <strong>Challenge:</strong> Product research eating entire days.
-              </p>
-              <p className="case-study-detail">
-                <strong>Solution:</strong> Platform handles 80% automatically, test dozens of creatives in minutes.
-              </p>
               <p className="case-study-quote">
                 "Cut tens of thousands in staffing costs, move faster than bigger competitors."
               </p>
@@ -166,14 +152,7 @@ export default function Home() {
             <div className="case-study">
               <div className="case-study-header">
                 <p className="case-study-metric">Multi-project portfolio</p>
-                <p className="case-study-industry">Real Estate Development</p>
               </div>
-              <p className="case-study-detail">
-                <strong>Challenge:</strong> Paying $3K/month per project to agency for marketing across 4 developments.
-              </p>
-              <p className="case-study-detail">
-                <strong>Solution:</strong> AI system handles all marketing + agent team for inbound inquiries 24/7.
-              </p>
               <p className="case-study-quote">
                 "Leads answered at 2am on Sundays — impossible before."
               </p>

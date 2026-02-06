@@ -10,7 +10,6 @@ const navItems: {
   { href: "#automate", label: "Automate" },
   { href: "#partner", label: "Partner" },
   { href: "#results", label: "Results" },
-  { href: "#faq", label: "FAQ" },
 ];
 
 function useScrollSpy(sectionIds: string[]) {

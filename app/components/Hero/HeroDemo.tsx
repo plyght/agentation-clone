@@ -182,12 +182,12 @@ export default function HeroDemo() {
           <div className={`${styles.dot} ${styles.red}`} />
           <div className={`${styles.dot} ${styles.yellow}`} />
           <div className={`${styles.dot} ${styles.green}`} />
-          <div className={styles.terminalTitle}>agent-integrator — session</div>
+          <div className={styles.terminalTitle}>agent-integrator</div>
         </div>
         <div className={styles.terminalContent}>
           {lines.map((line, index) => renderLine(line, index))}
         </div>
-        <div className={styles.tokenStats}>1,247 ↑ / 3,891 ↓ tokens</div>
+
       </motion.div>
     </div>
   );

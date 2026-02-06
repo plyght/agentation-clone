@@ -342,7 +342,7 @@
     gap: 0.875rem;
     max-width: 36rem;
     margin: 0 auto;
-    padding: 4rem 1.5rem 3rem;
+    padding: 3.75rem 1.5rem 3rem;
   }
 
   @media (max-width: 900px) {
@@ -1444,30 +1444,6 @@
     font-weight: 550;
     color: rgba(0, 0, 0, 0.85);
     letter-spacing: -0.005rem;
-  }
-
-  .case-study-industry {
-    font-size: 0.625rem;
-    font-weight: 550;
-    color: rgba(0, 0, 0, 0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-  }
-
-  .case-study-detail {
-    font-size: 0.8125rem;
-    font-weight: 425;
-    line-height: 1.5;
-    color: rgba(0, 0, 0, 0.5);
-  }
-
-  .case-study-detail + .case-study-detail {
-    margin-top: 0.125rem;
-  }
-
-  .case-study-detail strong {
-    font-weight: 550;
-    color: rgba(0, 0, 0, 0.6);
   }
 
   .case-study-quote {

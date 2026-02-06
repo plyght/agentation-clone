@@ -109,16 +109,6 @@
   }
 }
 
-.tokenStats {
-  position: absolute;
-  bottom: 14px;
-  right: 18px;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.2);
-  font-family: "SF Mono", "SFMono-Regular", ui-monospace, Consolas, monospace;
-  z-index: 1;
-}
-
 @media (max-width: 640px) {
   .terminal {
     border-radius: 10px;
@@ -142,11 +132,5 @@
     padding: 12px;
     font-size: 11px;
     min-height: 280px;
-  }
-
-  .tokenStats {
-    font-size: 9px;
-    bottom: 10px;
-    right: 12px;
   }
 }
