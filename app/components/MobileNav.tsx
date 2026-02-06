@@ -7,7 +7,6 @@ const navLinks = [
   { href: "#automate", label: "Automate" },
   { href: "#partner", label: "Partner" },
   { href: "#results", label: "Results" },
-  { href: "#faq", label: "FAQ" },
 ];
 
 export default function MobileNav() {

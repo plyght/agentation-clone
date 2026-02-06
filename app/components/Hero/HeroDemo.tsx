@@ -114,7 +114,7 @@ export default function HeroDemo() {
       return (
         <div key={index} className={styles.terminalLine}>
           {parts[0]}
-          <span style={{ color: "rgba(0, 0, 0, 0.25)" }}>→</span>
+          <span className={styles.terminalArrow}>→</span>
           {numberMatch ? (
             <>
               {rightPart.substring(0, numberMatch.index)}
@@ -131,7 +131,7 @@ export default function HeroDemo() {
     if (line.match(/^  [├└]/)) {
       return (
         <div key={index} className={styles.terminalLine}>
-          <span style={{ color: "rgba(0, 0, 0, 0.2)" }}>
+          <span className={styles.terminalTreeChar}>
             {line.substring(0, 4)}
           </span>
           {line.substring(4)}
@@ -155,7 +155,7 @@ export default function HeroDemo() {
       return (
         <div key={index} className={styles.terminalLine}>
           Status:{" "}
-          <span style={{ fontWeight: "bold", color: "rgba(0, 0, 0, 0.9)" }}>
+          <span className={styles.terminalBold}>
             Ready to build
           </span>{" "}
           <span style={{ color: "#16a34a" }}>✓</span>

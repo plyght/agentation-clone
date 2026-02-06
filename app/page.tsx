@@ -1,8 +1,37 @@
 "use client";
 
+import { useRef, useCallback, useState } from "react";
 import HeroDemo from "./components/Hero/HeroDemo";
 
 export default function Home() {
+  const caseStudiesRef = useRef<HTMLDivElement>(null);
+
+  const handleCaseStudyEnter = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      const container = caseStudiesRef.current;
+      if (!container) return;
+      for (const child of container.children) {
+        child.classList.remove("active");
+      }
+      e.currentTarget.classList.add("active");
+    },
+    []
+  );
+
+  const handleCaseStudiesLeave = useCallback(() => {
+    const container = caseStudiesRef.current;
+    if (!container) return;
+    for (const child of container.children) {
+      child.classList.remove("active");
+    }
+  }, []);
+
+  const [footerEmailCopied, setFooterEmailCopied] = useState(false);
+  const handleCopyFooterEmail = useCallback(() => {
+    navigator.clipboard.writeText("team@agentintegrator.io");
+    setFooterEmailCopied(true);
+    setTimeout(() => setFooterEmailCopied(false), 1500);
+  }, []);
   return (
     <main className="main-content">
       <div className="article">
@@ -132,8 +161,12 @@ export default function Home() {
 
         <section id="results">
           <h2>Trusted by businesses doing the work</h2>
-          <div className="case-studies">
-            <div className="case-study">
+          <div
+            className="case-studies"
+            ref={caseStudiesRef}
+            onMouseLeave={handleCaseStudiesLeave}
+          >
+            <div className="case-study" onMouseEnter={handleCaseStudyEnter}>
               <div className="case-study-header">
                 <p className="case-study-metric">$1.5M/mo in new policies</p>
               </div>
@@ -141,7 +174,7 @@ export default function Home() {
                 "Faster, cheaper, built for us."
               </p>
             </div>
-            <div className="case-study">
+            <div className="case-study" onMouseEnter={handleCaseStudyEnter}>
               <div className="case-study-header">
                 <p className="case-study-metric">7-figure brand portfolio</p>
               </div>
@@ -149,7 +182,7 @@ export default function Home() {
                 "Cut tens of thousands in staffing costs, move faster than bigger competitors."
               </p>
             </div>
-            <div className="case-study">
+            <div className="case-study" onMouseEnter={handleCaseStudyEnter}>
               <div className="case-study-header">
                 <p className="case-study-metric">Multi-project portfolio</p>
               </div>
@@ -181,7 +214,13 @@ export default function Home() {
 
       <footer className="footer">
         <p>© 2026 Agent Integrator</p>
-        <p>team@agentintegrator.io</p>
+        <button
+          className={`footer-email-copy${footerEmailCopied ? " copied" : ""}`}
+          onClick={handleCopyFooterEmail}
+          type="button"
+        >
+          {footerEmailCopied ? "Copied!" : "team@agentintegrator.io"}
+        </button>
       </footer>
     </main>
   );

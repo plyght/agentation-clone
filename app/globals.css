@@ -17,6 +17,18 @@
   --green: #22c55e;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: #0f0f0f;
+    --body-color: #e5e5e5;
+    --heading-color: #e5e5e5;
+    --selection-color: #fff;
+    --selection-bg: #333;
+    --hyperlink-color: #5a9cf5;
+    --focus-color: rgba(90, 156, 245, 0.5);
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-inter);
   --font-serif: var(--font-ibm-plex-serif);
@@ -58,6 +70,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--font-primary);
+    cursor: default;
   }
 
   h1,
@@ -602,6 +615,7 @@
     font-size: 0.875rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.375rem;
+    cursor: text;
   }
 
   .demo-input:focus {
@@ -685,6 +699,31 @@
 
   .footer a:hover {
     color: rgba(0, 0, 0, 0.7);
+  }
+
+  .footer-email-copy {
+    font-family: var(--font-primary);
+    font-size: 0.75rem;
+    font-weight: 425;
+    color: rgba(0, 0, 0, 0.35);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .footer-email-copy:hover {
+    color: rgba(0, 0, 0, 0.7);
+    transform: translateY(-0.5px);
+  }
+
+  .footer-email-copy:active {
+    transform: translateY(0);
+  }
+
+  .footer-email-copy.copied {
+    color: var(--green);
   }
 
   .mobile-notice {
@@ -1405,35 +1444,45 @@
 
   .case-studies {
     margin-top: 1rem;
-    background: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: 0.625rem;
-    overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
   }
 
   .case-study {
-    padding: 1rem 0.875rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    transition: background 0.15s ease;
+    padding: 0 0 0 1rem;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.25rem;
+    gap: 0.125rem;
+  }
+
+  .case-study::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 1px;
+    transition: background 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    pointer-events: none;
+  }
+
+  .case-study.active::before {
+    background: rgba(76, 116, 255, 0.4);
   }
 
   .case-study:last-child {
     border-bottom: none;
   }
 
-  .case-study:hover {
-    background: rgba(76, 116, 255, 0.02);
-  }
-
   .case-study-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
   }
@@ -1450,7 +1499,7 @@
     font-size: 0.75rem;
     font-style: italic;
     color: rgba(0, 0, 0, 0.35);
-    margin-top: 0.375rem;
+    margin-top: 0.25rem;
   }
 
   .cta-section {
@@ -2156,6 +2205,41 @@
       text-align: center;
     }
 
+    .cta-section {
+      padding: 2rem 1.25rem;
+      border-radius: 0.5rem;
+    }
+
+    .article table {
+      font-size: 0.75rem;
+    }
+
+    .article table th,
+    .article table td {
+      padding: 0.5rem 0.625rem;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+    }
+
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-secondary {
+      text-align: center;
+      justify-content: center;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
     .colophon-content {
       padding: 2rem 1rem 3rem;
     }
@@ -2278,6 +2362,515 @@
   .sd-cursor { position: absolute; pointer-events: none; z-index: 100; transition: left 0.4s cubic-bezier(0.4,0,0.2,1), top 0.4s cubic-bezier(0.4,0,0.2,1), transform 0.1s; }
   .sd-cursor svg { display: block; filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3)); }
   .sd-cursor.clicking { transform: scale(0.9); }
+
+  @media (prefers-color-scheme: dark) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    h2 {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    h2::after {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    h3 {
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .side-nav .side-nav-logo {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .side-nav .nav-link {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .side-nav .nav-link:hover {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .side-nav .nav-link.active {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .side-nav .nav-section {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .side-nav .nav-version {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .side-nav .nav-version:hover {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .side-nav .nav-dot {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .side-nav .nav-github {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .side-nav .nav-github:hover {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    [data-toc-list]::before {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    [data-toc-list]::after {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    [data-toc-item] a {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    [data-toc-item] a:hover {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    [data-toc-item] a[aria-current="true"] {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .article header .tagline {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .article p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .article ol li,
+    .article ul li {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .article ol li::marker,
+    .article ul li::marker {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .article code {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .article code:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .article p a:hover,
+    .article li a:hover {
+      color: #74b1fd;
+    }
+
+    .install-snippet {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .install-snippet:hover {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .announcement-banner {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .announcement-banner:hover {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .demo-button {
+      background: #e5e5e5;
+      color: #111;
+    }
+
+    .demo-button:hover {
+      background: #d4d4d4;
+    }
+
+    .demo-button.secondary {
+      background: #1a1a1a;
+      color: #e5e5e5;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    .demo-button.secondary:hover {
+      background: #222;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    }
+
+    .demo-card {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .demo-card p {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .demo-input {
+      background: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #e5e5e5;
+    }
+
+    .demo-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .progress-bar-demo {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .footer {
+      border-top-color: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footer a {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer a:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer-email-copy {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .footer-email-copy:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .mobile-notice {
+      background: linear-gradient(135deg, #161616, #1a1a1a);
+      border-bottom-color: rgba(255, 255, 255, 0.06);
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .mobile-nav .mobile-nav-icon span {
+      background: #666;
+    }
+
+    .mobile-nav .mobile-nav-link {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .mobile-nav .mobile-nav-link:hover {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .mobile-nav .mobile-nav-link.active {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .mobile-typed-logo {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-label {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .ai-logo-bracket {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .ai-logo-name {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .btn-primary {
+      background: #e5e5e5;
+      color: #111;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #d4d4d4;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+      background: #1a1a1a;
+      color: #e5e5e5;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: #222;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18), 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary:active {
+      background: #191919;
+    }
+
+    .btn-orange {
+      background: #e5e5e5;
+      color: #111;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-orange:hover {
+      background: #d4d4d4;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-number {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .card-title {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .card-subtitle {
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .card-body {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .card-link {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .card-link:hover {
+      color: rgba(255, 255, 255, 0.95);
+    }
+
+    .stat-item {
+      background: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-item:hover {
+      border-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .stat-value {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .stat-label {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .efficiency-callout {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .case-studies {
+      background: transparent;
+    }
+
+    .case-study::before {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .case-study.active::before {
+      background: rgba(76, 116, 255, 0.5);
+    }
+
+    .case-study-metric {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .case-study-quote {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .article table {
+      background: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .article table th {
+      color: rgba(255, 255, 255, 0.4);
+      border-bottom-color: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .article table td {
+      border-bottom-color: rgba(255, 255, 255, 0.04);
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .article table tr:hover td {
+      background: rgba(76, 116, 255, 0.04);
+    }
+
+    .article table td:last-child {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .cta-section {
+      background: #181818;
+    }
+
+    .cta-section::before {
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 20px,
+        rgba(255, 255, 255, 0.01) 20px,
+        rgba(255, 255, 255, 0.01) 40px
+      );
+    }
+
+    .cta-section .btn-primary {
+      background: #e5e5e5;
+      color: #111;
+    }
+
+    .cta-section .btn-primary:hover {
+      background: #d4d4d4;
+    }
+
+    .code-block {
+      background: #1a1a1a;
+      border-color: rgba(255, 255, 255, 0.06);
+      color: #ccc;
+    }
+
+    .code-block .line.comment {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .code-block .copy-btn {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .code-block .copy-btn:hover {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .article .prop-header code {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .article .prop-type {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .article .prop-default {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .article .prop-item {
+      border-bottom-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .changelog-tag {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .changelog-version-date {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .section-subtitle {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .book-call-btn {
+      background: #e5e5e5;
+      color: #111;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .book-call-btn:hover {
+      background: #d4d4d4;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .quickstart-links {
+      border-top-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .sketchy-underline {
+      --marker-color: #5a8cff;
+    }
+
+    .pen-underline {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none' viewBox='0 0 100 12'%3E%3Cpath d='M2 8 Q50 4 98 7' stroke='%23f4694c' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    .colophon-content p {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .colophon-ascii {
+      color: rgba(255, 255, 255, 0.15);
+    }
+
+    .colophon-label {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .badge-recommended {
+      color: rgb(34, 197, 94);
+      background: rgba(34, 197, 94, 0.15);
+    }
+
+    .blog-card-meta h3 {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .blog-card-meta .dot {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .blog-card-meta time {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .blog-card p {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .package-alt-install {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .package-alt-install:hover {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .styled-link:hover {
+      color: #74b1fd;
+    }
+  }
 }
 
 .demo-window.sid-demo { background: #fff; }

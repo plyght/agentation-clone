@@ -109,6 +109,65 @@
   }
 }
 
+.terminalArrow {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.terminalTreeChar {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.terminalBold {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .terminal {
+    background: #1a1a1a;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .terminalBar {
+    background: #222;
+    border-bottom-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .terminalTitle {
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .terminalContent {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .terminalContent::after {
+    background: linear-gradient(to bottom, transparent, rgba(26, 26, 26, 0.4));
+  }
+
+  .terminalPrompt {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .terminalCursor {
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .terminalArrow {
+    color: rgba(255, 255, 255, 0.25);
+  }
+
+  .terminalTreeChar {
+    color: rgba(255, 255, 255, 0.2);
+  }
+
+  .terminalBold {
+    color: rgba(255, 255, 255, 0.9);
+  }
+}
+
 @media (max-width: 640px) {
   .terminal {
     border-radius: 10px;
