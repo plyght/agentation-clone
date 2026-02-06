@@ -556,7 +556,6 @@
 
   .quickstart-links p {
     margin: 0.5rem 0;
-    color: rgba(0, 0, 0, 0.5);
   }
 
   .quickstart-links .arrow {
@@ -599,6 +598,16 @@
       gap: 0.5rem;
       padding: 1rem 1.5rem 0.375rem;
     }
+  }
+
+  .typed-slash {
+    display: inline-block;
+  }
+
+  .typed-char {
+    opacity: 0;
+    display: inline-block;
+    animation: typeChar 0.1s ease-out forwards;
   }
 
   .bunny-slide-container {
@@ -1031,6 +1040,10 @@
 
 @layer base {
   @media (max-width: 640px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+
     body {
       font-size: 14px;
     }

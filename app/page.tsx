@@ -61,7 +61,7 @@ export default function Home() {
                 )}
               </svg>
             </button>
-            <h1>
+            <h1 style={{ fontSize: "2rem", lineHeight: 1.15, marginBottom: "0.5rem" }}>
               <span className="sketchy-underline">Point at bugs.</span>
               <br />
               Let AI <span className="pen-underline">fix them.</span>
@@ -79,7 +79,7 @@ export default function Home() {
           <section>
             <h2>How you use it</h2>
             <ol>
-              <li>Click the ✨ icon in the bottom-right corner to activate</li>
+              <li>Click the <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block", verticalAlign: "-0.45em", width: "1.5em", height: "1.5em", margin: "0 -0.1em" }}><path d="M11.5 12L5.5 12" /><path d="M18.5 6.75L5.5 6.75" /><path d="M9.25 17.25L5.5 17.25" /><path d="M16 12.75L16.5179 13.9677C16.8078 14.6494 17.3506 15.1922 18.0323 15.4821L19.25 16L18.0323 16.5179C17.3506 16.8078 16.8078 17.3506 16.5179 18.0323L16 19.25L15.4821 18.0323C15.1922 17.3506 14.6494 16.8078 13.9677 16.5179L12.75 16L13.9677 15.4821C14.6494 15.1922 15.1922 14.6494 15.4821 13.9677L16 12.75Z" /></svg> icon in the bottom-right corner to activate</li>
               <li>
                 <strong>Hover</strong> over elements to see their names
                 highlighted
@@ -90,14 +90,14 @@ export default function Home() {
               <li>
                 Write your feedback and click <strong>Add</strong>
               </li>
-              <li>Click 📋 to copy formatted markdown</li>
+              <li>Click <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" style={{ display: "inline-block", verticalAlign: "-0.45em", width: "1.5em", height: "1.5em", margin: "0 -0.1em" }}><path d="M4.75 11.25C4.75 10.4216 5.42157 9.75 6.25 9.75H12.75C13.5784 9.75 14.25 10.4216 14.25 11.25V17.75C14.25 18.5784 13.5784 19.25 12.75 19.25H6.25C5.42157 19.25 4.75 18.5784 4.75 17.75V11.25Z" /><path d="M17.25 14.25H17.75C18.5784 14.25 19.25 13.5784 19.25 12.75V6.25C19.25 5.42157 18.5784 4.75 17.75 4.75H11.25C10.4216 4.75 9.75 5.42157 9.75 6.25V6.75" /></svg> to copy formatted markdown</li>
               <li>Paste into your agent</li>
             </ol>
-            <p className="note">
-              <strong>Note:</strong> With{" "}
+            <p style={{ fontSize: "0.8125rem", color: "rgba(0, 0, 0, 0.55)", marginTop: "1rem" }}>
+              <strong style={{ display: "inline", margin: "-0.04em -0.06em", padding: "0.04em 0.06em", borderRadius: "0.2em 0.15em", backgroundImage: "linear-gradient(75deg, rgba(250, 204, 21, 0.5), rgba(250, 204, 21, 0.15) 4%, rgba(250, 204, 21, 0.3) 96%, rgba(250, 204, 21, 0.6))" }}>Note:</strong> With{" "}
               <a href="https://agentation.dev/mcp">MCP</a>, you can skip the
-              copy-paste step entirely — your agent already sees what you're
-              pointing at. Just say "address my feedback" or "fix annotation 3."
+              copy-paste step entirely — your agent already sees what you&apos;re
+              pointing at. Just say &ldquo;address my feedback&rdquo; or &ldquo;fix annotation 3.&rdquo;
             </p>
           </section>
 
@@ -132,7 +132,7 @@ export default function Home() {
             </p>
           </section>
 
-          <div className="demo-section">
+          <section className="demo-section hide-on-mobile">
             <h2>Try it</h2>
             <p>
               The toolbar is active on this page. Try annotating these demo
@@ -142,10 +142,10 @@ export default function Home() {
               <div className="button-group">
                 <button className="demo-button">Primary</button>
                 <button className="demo-button secondary">Secondary</button>
-                <button className="demo-button">Modal</button>
+                <button className="demo-button" style={{ background: "rgb(60, 130, 247)" }}>Modal</button>
                 <button
                   className="demo-button"
-                  style={{ background: "#9333ea" }}
+                  style={{ background: "rgb(124, 58, 237)" }}
                 >
                   Shadow Modal
                 </button>
@@ -163,11 +163,11 @@ export default function Home() {
                 </p>
               </div>
             </div>
-          </div>
+          </section>
 
-          <section>
+          <section className="demo-section hide-on-mobile">
             <h2>Animation pause demo</h2>
-            <p>Click ⏸ in the toolbar to freeze this animation:</p>
+            <p>Click <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" style={{ display: "inline-block", verticalAlign: "-0.45em", width: "1.5em", height: "1.5em", margin: "0 -0.1em" }}><path d="M8 6L8 18" /><path d="M16 18L16 6" /></svg> in the toolbar to freeze this animation:</p>
             <div className="animation-demo" style={{ marginTop: "1rem" }}>
               <div className="progress-bar-demo">
                 <div className="progress-bar" />
@@ -248,34 +248,36 @@ export default function Home() {
             </p>
           </section>
 
-          <div className="quickstart-links">
+          <section className="quickstart-links">
             <p>
-              <a href="/mcp">
+              <a className="styled-link" href="/mcp">
                 Set up real-time sync with MCP <span className="arrow">→</span>
               </a>
             </p>
             <p>
-              <a href="/webhooks">
+              <a className="styled-link" href="/webhooks">
                 Push annotations to external services{" "}
                 <span className="arrow">→</span>
               </a>
             </p>
             <p>
-              <a href="/api">
+              <a className="styled-link" href="/api">
                 Build your own integration with the API{" "}
                 <span className="arrow">→</span>
               </a>
             </p>
-          </div>
+          </section>
         </div>
 
-        <div className="footer">
+        <footer className="footer" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <p>
-            Made by <a href="https://twitter.com/benjitaylor">Benji Taylor</a>,{" "}
-            <a href="https://twitter.com/dennisjin">Dennis Jin</a>, and{" "}
-            <a href="https://twitter.com/alexvanderzon">Alex Vanderzon</a>
+            Made by{" "}
+            <a href="https://x.com/benjitaylor" target="_blank" rel="noopener noreferrer">Benji Taylor</a>,{" "}
+            <a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}
+            <a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a>
           </p>
-        </div>
+          <a href="/colophon">Colophon</a>
+        </footer>
       </main>
     </>
   );

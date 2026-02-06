@@ -20,23 +20,24 @@ export default function SideNav() {
     <nav className="side-nav">
       <div className="side-nav-logo">
         <div className="bunny-slide-container">
-          <a tabIndex={-1} href="/">
+          <a tabIndex={-1} href="/" style={{ display: "flex", cursor: "default", pointerEvents: "none" }}>
             <BunnyLogo />
           </a>
         </div>
-        <span>/</span>
-        {typedChars.map((char, index) => (
-          <span
-            key={index}
-            style={{
-              opacity: 0,
-              animation: "typeChar 0.1s ease-in forwards",
-              animationDelay: `${index * 0.1}s`,
-            }}
-          >
-            {char}
-          </span>
-        ))}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+          <span className="typed-slash">/</span>
+          {typedChars.map((char, index) => (
+            <span
+              key={index}
+              className="typed-char"
+              style={{
+                animationDelay: `${index * 0.1}s`,
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
       </div>
       <div className="nav-links">
         <div className="nav-item-wrapper">
