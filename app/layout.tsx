@@ -4,6 +4,7 @@ import "./globals.css";
 import "../styles/demo-browser.css";
 import MobileNotice from "./components/MobileNotice";
 import MobileNav from "./components/MobileNav";
+import SideNav from "./components/SideNav";
 import { Agentation } from "agentation";
 
 const inter = Inter({
@@ -34,6 +35,7 @@ export default function RootLayout({
       >
         <MobileNotice />
         <MobileNav />
+        <SideNav />
         {children}
         {process.env.NODE_ENV === "development" && <Agentation />}
       </body>

@@ -1,9 +1,6 @@
-import SideNav from "../components/SideNav";
 
 export default function Colophon() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="colophon-content">
           <p>Agentation is a React component for annotating web pages and generating structured feedback for AI coding agents. Zero runtime dependencies beyond React 18+, written in TypeScript with full type definitions. Available on <a href="https://www.npmjs.com/package/agentation">npm</a> and <a href="https://github.com/benjitaylor/agentation">GitHub</a>.</p>
@@ -53,6 +50,5 @@ export default function Colophon() {
           </div>
         </div>
       </main>
-    </>
   );
 }

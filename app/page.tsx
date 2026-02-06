@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import SideNav from "./components/SideNav";
+import Link from "next/link";
 import HeroDemo from "./components/Hero/HeroDemo";
 
 export default function Home() {
@@ -18,8 +18,6 @@ export default function Home() {
   };
 
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article">
           <a
@@ -279,6 +277,5 @@ export default function Home() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

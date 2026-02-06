@@ -1,4 +1,3 @@
-import SideNav from "../../components/SideNav";
 
 export const metadata = {
   title: "Introducing Agentation 2.0",
@@ -6,8 +5,6 @@ export const metadata = {
 
 export default function IntroducingAgentation2() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <article className="article">
           <header>
@@ -126,6 +123,5 @@ export default function IntroducingAgentation2() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

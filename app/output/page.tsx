@@ -1,10 +1,7 @@
-import SideNav from "../components/SideNav";
 import CopyButton from "../components/CopyButton";
 
 export default function Output() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article">
           <header>
@@ -103,6 +100,5 @@ export default function Output() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

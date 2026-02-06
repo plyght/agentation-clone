@@ -1,13 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect, useId } from "react";
+import { Highlight, themes } from "prism-react-renderer";
 import { motion, useAnimate } from "framer-motion";
 
-interface CopyButtonProps {
-  text?: string;
-}
-
-export default function CopyButton({ text }: CopyButtonProps) {
+function AnimatedCopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   const [scope, animate] = useAnimate();
   const id = useId();
@@ -32,7 +29,6 @@ export default function CopyButton({ text }: CopyButtonProps) {
   const isChecked = useRef(false);
   const fwdAnim = useRef<any>(null);
   const revAnim = useRef<any>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const runForward = async () => {
     if (fwdAnim.current || revAnim.current || isChecked.current) {
@@ -69,31 +65,31 @@ export default function CopyButton({ text }: CopyButtonProps) {
   }, [copied]);
 
   const handleCopy = async () => {
-    let textToCopy = text;
-
-    if (!textToCopy && buttonRef.current) {
-      const codeBlock = buttonRef.current.closest(".code-block");
-      if (codeBlock) {
-        const lines = codeBlock.querySelectorAll(".line");
-        textToCopy = Array.from(lines)
-          .map((line) => line.textContent)
-          .join("\n");
-      }
-    }
-
-    if (textToCopy) {
-      await navigator.clipboard.writeText(textToCopy);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
     <button
-      ref={buttonRef}
       onClick={handleCopy}
-      className="copy-btn"
+      className="copy-button"
       title="Copy to clipboard"
+      style={{
+        position: "absolute",
+        top: "0.5rem",
+        right: "0.5rem",
+        padding: "0.375rem",
+        background: "transparent",
+        border: "none",
+        borderRadius: "0.25rem",
+        cursor: "pointer",
+        color: "rgba(0,0,0,0.35)",
+        transition: "color 0.15s ease",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
       <svg
         ref={scope}
@@ -134,5 +130,34 @@ export default function CopyButton({ text }: CopyButtonProps) {
         </mask>
       </svg>
     </button>
+  );
+}
+
+export default function CodeBlock({
+  code,
+  language = "tsx",
+  copyable = false,
+}: {
+  code: string;
+  language?: string;
+  copyable?: boolean;
+}) {
+  return (
+    <div style={{ position: "relative" }}>
+      <Highlight theme={themes.github} code={code.trim()} language={language}>
+        {({ style, tokens, getLineProps, getTokenProps }) => (
+          <pre className="code-block" style={{ ...style, background: "transparent" }}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                {line.map((token, j) => (
+                  <span key={j} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+      {copyable && <AnimatedCopyButton text={code.trim()} />}
+    </div>
   );
 }

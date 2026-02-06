@@ -1,6 +1,5 @@
 "use client";
 
-import SideNav from "../components/SideNav";
 import AnnotationModesDemo from "../components/features/AnnotationModesDemo";
 import AgentSyncDemo from "../components/features/AgentSyncDemo";
 import SettingsDemo from "../components/features/SettingsDemo";
@@ -10,8 +9,6 @@ import ReactDetectionDemo from "../components/features/ReactDetectionDemo";
 
 export default function Features() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
           <header style={{ animation: "slideUp 0.6s ease" }}>
@@ -288,6 +285,5 @@ export default function Features() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

@@ -1,14 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import SideNav from "../components/SideNav";
 import CopyButton from "../components/CopyButton";
 
 export default function Install() {
   const [pkgManager, setPkgManager] = useState<"npm" | "yarn" | "pnpm" | "bun">("npm");
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article">
           <header>
@@ -312,6 +309,5 @@ export default function Install() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

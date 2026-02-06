@@ -1,9 +1,6 @@
-import SideNav from "../components/SideNav";
 
 export default function Blog() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article">
           <header>
@@ -29,6 +26,5 @@ export default function Blog() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }

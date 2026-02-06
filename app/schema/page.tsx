@@ -1,13 +1,10 @@
 "use client";
 
-import SideNav from "../components/SideNav";
 import CopyButton from "../components/CopyButton";
 import SchemaDiagram from "../components/diagrams/SchemaDiagram";
 
 export default function SchemaPage() {
   return (
-    <>
-      <SideNav />
       <main className="main-content">
         <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
           <header style={{ animation: "slideUp 0.6s ease" }}>
@@ -388,6 +385,5 @@ export default function SchemaPage() {
           <a href="/colophon">Colophon</a>
         </footer>
       </main>
-    </>
   );
 }
