@@ -1,0 +1,33 @@
+export default function Footer() {
+  return (
+    <footer>
+      <p>
+        Made by{" "}
+        <a
+          href="https://x.com/benjitaylor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Benji Taylor
+        </a>
+        ,{" "}
+        <a
+          href="https://x.com/seldom"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Dennis Jin
+        </a>
+        , and{" "}
+        <a
+          href="https://x.com/alexvanderzon"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Alex Vanderzon
+        </a>
+      </p>
+      <a href="https://agentation.dev/colophon">Colophon</a>
+    </footer>
+  );
+}

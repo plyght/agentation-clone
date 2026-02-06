@@ -1,0 +1,309 @@
+@layer components {
+  .settings-panel {
+    position: fixed;
+    bottom: calc(12px + 36px + 8px);
+    right: 12px;
+    min-width: 205px;
+    background: #1c1c1c;
+    border-radius: 1rem;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.3),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+    z-index: 9998;
+    animation: settingsPanelIn 0.2s ease;
+    will-change: transform, opacity;
+  }
+
+  .settings-panel.exiting {
+    animation: settingsPanelOut 0.1s ease;
+  }
+
+  .settings-panel.light {
+    background: #fff;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
+
+  .settings-panel-header {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settings-panel.light .settings-panel-header {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .settings-panel-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .settings-panel-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .settings-panel-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .settings-panel.light .settings-panel-title {
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .settings-panel-version {
+    font-size: 0.625rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 4px;
+  }
+
+  .settings-panel.light .settings-panel-version {
+    color: rgba(0, 0, 0, 0.4);
+  }
+
+  .settings-panel-theme-toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .settings-panel-theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .settings-panel.light .settings-panel-theme-toggle {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .settings-panel.light .settings-panel-theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  .settings-panel-theme-toggle svg {
+    width: 16px;
+    height: 16px;
+    animation: themeIconIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .settings-panel-content {
+    max-height: 400px;
+    overflow-y: auto;
+  }
+
+  .settings-panel-section {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .settings-panel.light .settings-panel-section {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .settings-panel-section:last-child {
+    border-bottom: none;
+  }
+
+  .settings-panel-section-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .settings-panel.light .settings-panel-section-title {
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .settings-panel-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .settings-panel-control-label {
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .settings-panel.light .settings-panel-control-label {
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  .settings-panel-toggle {
+    width: 24px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .settings-panel-toggle.active {
+    background: #3b82f6;
+  }
+
+  .settings-panel-toggle-thumb {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+  }
+
+  .settings-panel-toggle.active .settings-panel-toggle-thumb {
+    transform: translateX(8px);
+  }
+
+  .settings-panel-checkbox {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .settings-panel.light .settings-panel-checkbox {
+    border-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .settings-panel-checkbox.checked {
+    background: #3b82f6;
+    border-color: #3b82f6;
+  }
+
+  .settings-panel-checkbox svg {
+    width: 10px;
+    height: 10px;
+    color: white;
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: checkDraw 0.18s ease-out forwards;
+  }
+
+  .settings-panel-slider {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .settings-panel.light .settings-panel-slider {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .settings-panel-slider-track {
+    height: 100%;
+    background: #3b82f6;
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .settings-panel-slider-thumb {
+    width: 14px;
+    height: 14px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    cursor: grab;
+  }
+
+  .settings-panel-slider-thumb:active {
+    cursor: grabbing;
+  }
+
+  .settings-panel-cycle {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .settings-panel-cycle-button {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .settings-panel.light .settings-panel-cycle-button {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .settings-panel-cycle-button:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  .settings-panel.light .settings-panel-cycle-button:hover {
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .settings-panel-cycle-button.active {
+    background: #3b82f6;
+    color: white;
+  }
+
+  .settings-panel-cycle-dots {
+    display: flex;
+    gap: 3px;
+    margin-top: 4px;
+    justify-content: center;
+  }
+
+  .settings-panel-cycle-dot {
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.2s;
+  }
+
+  .settings-panel.light .settings-panel-cycle-dot {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .settings-panel-cycle-dot.active {
+    background: #3b82f6;
+    transform: scale(1.2);
+  }
+
+  @media (max-width: 640px) {
+    .settings-panel {
+      bottom: calc(8px + 28px + 8px);
+      right: 8px;
+    }
+  }
+}

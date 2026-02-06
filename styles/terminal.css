@@ -1,0 +1,146 @@
+@layer components {
+  .terminal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    width: 340px;
+    height: 280px;
+    background: #faf9f7;
+    border-radius: 10px;
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.08),
+      0 4px 16px rgba(0, 0, 0, 0.12),
+      0 12px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    animation: slideUp 0.2s ease-out;
+    will-change: transform, opacity;
+    z-index: 100;
+  }
+
+  .terminal-bar {
+    height: 28px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .terminal-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .terminal-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .terminal-dot-red {
+    background: #ff5f57;
+  }
+
+  .terminal-dot-yellow {
+    background: #febc2e;
+  }
+
+  .terminal-dot-green {
+    background: #28c840;
+  }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  .terminal-content {
+    padding: 12px 14px;
+    font-family: "SF Mono", "Cascadia Code", monospace;
+    font-size: 10px;
+    line-height: 1.6;
+    color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+    height: calc(100% - 28px);
+  }
+
+  .terminal-line {
+    margin-bottom: 4px;
+  }
+
+  .terminal-prompt {
+    color: rgba(0, 0, 0, 0.5);
+    margin-right: 8px;
+  }
+
+  .terminal-command {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+  }
+
+  .terminal-output {
+    color: rgba(0, 0, 0, 0.6);
+    padding-left: 16px;
+  }
+
+  .terminal-success {
+    color: #22c55e;
+  }
+
+  .terminal-error {
+    color: #ff3b30;
+  }
+
+  .terminal-warning {
+    color: #f59e0b;
+  }
+
+  .terminal-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.7);
+    animation: blink 1s infinite;
+    margin-left: 2px;
+  }
+
+  @keyframes blink {
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .terminal {
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      width: auto;
+      height: 240px;
+      border-radius: 8px;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .terminal-title {
+      font-size: 11px;
+    }
+
+    .terminal-content {
+      padding: 10px 12px;
+      font-size: 9px;
+    }
+  }
+}
