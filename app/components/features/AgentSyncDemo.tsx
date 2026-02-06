@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface Message {
   id: number;
@@ -11,6 +11,7 @@ interface Message {
 export default function AgentSyncDemo() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [streamingId, setStreamingId] = useState<number | null>(null);
+  const idCounterRef = useRef(0);
 
   useEffect(() => {
     const runAnimation = async () => {
@@ -19,50 +20,50 @@ export default function AgentSyncDemo() {
       await new Promise((resolve) => setTimeout(resolve, 500));
 
       const msg1: Message = {
-        id: 1,
+        id: ++idCounterRef.current,
         role: "user",
         content: "What annotations do I have?",
       };
       setMessages([msg1]);
-      setStreamingId(1);
+      setStreamingId(msg1.id);
       await new Promise((resolve) => setTimeout(resolve, 800));
       setStreamingId(null);
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       const msg2: Message = {
-        id: 2,
+        id: ++idCounterRef.current,
         role: "agent",
         content:
           "Let me check... Found 3 annotations on /dashboard: 1. Button color too light (pending) 2. Sidebar icon misaligned (pending) 3. Footer text unclear (acknowledged)",
       };
       setMessages((prev) => [...prev, msg2]);
-      setStreamingId(2);
+      setStreamingId(msg2.id);
       await new Promise((resolve) => setTimeout(resolve, 1800));
       setStreamingId(null);
 
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       const msg3: Message = {
-        id: 3,
+        id: ++idCounterRef.current,
         role: "user",
         content: "Resolve #1, the button color was fixed",
       };
       setMessages((prev) => [...prev, msg3]);
-      setStreamingId(3);
+      setStreamingId(msg3.id);
       await new Promise((resolve) => setTimeout(resolve, 800));
       setStreamingId(null);
 
       await new Promise((resolve) => setTimeout(resolve, 800));
 
       const msg4: Message = {
-        id: 4,
+        id: ++idCounterRef.current,
         role: "agent",
         content:
           "Resolved annotation #1 with note: Button color updated to meet contrast requirements.",
       };
       setMessages((prev) => [...prev, msg4]);
-      setStreamingId(4);
+      setStreamingId(msg4.id);
       await new Promise((resolve) => setTimeout(resolve, 1500));
       setStreamingId(null);
 
