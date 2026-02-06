@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export default function Blog() {
   return (
@@ -9,7 +10,7 @@ export default function Blog() {
           </header>
 
           <section>
-            <a className="blog-card" href="/blog/introducing-agentation-2">
+            <Link className="blog-card" href="/blog/introducing-agentation-2">
               <img src="/blog/agentation-2-og.png" alt="Introducing Agentation 2.0" />
               <div className="blog-card-meta">
                 <h3>Introducing Agentation 2.0</h3>
@@ -17,13 +18,13 @@ export default function Blog() {
                 <time>February 5, 2026</time>
               </div>
               <p>Annotations become a two-way conversation. Your AI agent can now see, respond to, and resolve your feedback in real time.</p>
-            </a>
+            </Link>
           </section>
         </div>
 
         <footer className="footer" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <p>Made by{" "}<a href="https://x.com/benjitaylor" target="_blank" rel="noopener noreferrer">Benji Taylor</a>,{" "}<a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}<a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a></p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );

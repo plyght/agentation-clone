@@ -20,7 +20,7 @@ export default function Home() {
   return (
       <main className="main-content">
         <div className="article">
-          <a
+          <Link
             className="announcement-banner"
             href="/blog/introducing-agentation-2"
           >
@@ -30,7 +30,7 @@ export default function Home() {
               agent sync
             </span>
             <span style={{ color: "#4a9eff", marginLeft: "0.5rem" }}>→</span>
-          </a>
+          </Link>
 
           <header style={{ position: "relative" }}>
             <button
@@ -93,7 +93,7 @@ export default function Home() {
             </ol>
             <p style={{ fontSize: "0.8125rem", color: "rgba(0, 0, 0, 0.55)", marginTop: "1rem" }}>
               <strong style={{ display: "inline", margin: "-0.04em -0.06em", padding: "0.04em 0.06em", borderRadius: "0.2em 0.15em", backgroundImage: "linear-gradient(75deg, rgba(250, 204, 21, 0.5), rgba(250, 204, 21, 0.15) 4%, rgba(250, 204, 21, 0.3) 96%, rgba(250, 204, 21, 0.6))" }}>Note:</strong> With{" "}
-              <a href="/mcp">MCP</a>, you can skip the
+              <Link href="/mcp">MCP</Link>, you can skip the
               copy-paste step entirely — your agent already sees what you&apos;re
               pointing at. Just say &ldquo;address my feedback&rdquo; or &ldquo;fix annotation 3.&rdquo;
             </p>
@@ -176,11 +176,11 @@ export default function Home() {
           <section>
             <h2>Agents talk back</h2>
             <p>
-              With <a href="/mcp">MCP integration</a> and
+              With <Link href="/mcp">MCP integration</Link> and
               the{" "}
-              <a href="/schema">
+              <Link href="/schema">
                 Annotation Format Schema
-              </a>
+              </Link>
               , agents don't just read your annotations — they can respond to
               them:
             </p>
@@ -248,21 +248,21 @@ export default function Home() {
 
           <section className="quickstart-links">
             <p>
-              <a className="styled-link" href="/mcp">
+              <Link className="styled-link" href="/mcp">
                 Set up real-time sync with MCP <span className="arrow">→</span>
-              </a>
+              </Link>
             </p>
             <p>
-              <a className="styled-link" href="/webhooks">
+              <Link className="styled-link" href="/webhooks">
                 Push annotations to external services{" "}
                 <span className="arrow">→</span>
-              </a>
+              </Link>
             </p>
             <p>
-              <a className="styled-link" href="/api">
+              <Link className="styled-link" href="/api">
                 Build your own integration with the API{" "}
                 <span className="arrow">→</span>
-              </a>
+              </Link>
             </p>
           </section>
         </div>
@@ -274,7 +274,7 @@ export default function Home() {
             <a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}
             <a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a>
           </p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );

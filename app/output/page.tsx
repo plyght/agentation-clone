@@ -1,3 +1,4 @@
+import Link from "next/link";
 import CopyButton from "../components/CopyButton";
 
 export default function Output() {
@@ -97,7 +98,7 @@ export default function Output() {
             <a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}
             <a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a>
           </p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );

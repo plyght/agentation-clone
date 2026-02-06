@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export const metadata = {
   title: "Introducing Agentation 2.0",
@@ -120,7 +121,7 @@ export default function IntroducingAgentation2() {
 
         <footer className="footer" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <p>Made by{" "}<a href="https://x.com/benjitaylor" target="_blank" rel="noopener noreferrer">Benji Taylor</a>,{" "}<a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}<a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a></p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );

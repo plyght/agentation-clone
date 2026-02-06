@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer>
@@ -27,7 +29,7 @@ export default function Footer() {
           Alex Vanderzon
         </a>
       </p>
-      <a href="/colophon">Colophon</a>
+      <Link href="/colophon">Colophon</Link>
     </footer>
   );
 }

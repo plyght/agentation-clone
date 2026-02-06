@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, Fragment } from "react";
+import Link from "next/link";
 
 const faqData = [
   {
@@ -321,8 +322,9 @@ export default function FAQ() {
               Alex Vanderzon
             </a>
           </p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
+    </>
   );
 }

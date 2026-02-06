@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import AnnotationModesDemo from "../components/features/AnnotationModesDemo";
 import AgentSyncDemo from "../components/features/AgentSyncDemo";
 import SettingsDemo from "../components/features/SettingsDemo";
@@ -282,7 +283,7 @@ export default function Features() {
             <a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}
             <a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a>
           </p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );

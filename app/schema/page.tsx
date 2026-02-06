@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import CopyButton from "../components/CopyButton";
 import SchemaDiagram from "../components/diagrams/SchemaDiagram";
 
@@ -382,7 +383,7 @@ export default function SchemaPage() {
             <a href="https://x.com/seldom" target="_blank" rel="noopener noreferrer">Dennis Jin</a>, and{" "}
             <a href="https://x.com/alexvanderzon" target="_blank" rel="noopener noreferrer">Alex Vanderzon</a>
           </p>
-          <a href="/colophon">Colophon</a>
+          <Link href="/colophon">Colophon</Link>
         </footer>
       </main>
   );
