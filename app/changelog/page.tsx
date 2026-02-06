@@ -17,7 +17,7 @@ export default function Changelog() {
               <span className="changelog-version-date">February 5, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag fixed">Fixed</span>
+              <span className="changelog-tag">Fixed</span>
               <ul>
                 <li>Unstyled &ldquo;Learn more&rdquo; link in MCP Connection settings when no endpoint is configured</li>
               </ul>
@@ -30,7 +30,7 @@ export default function Changelog() {
               <span className="changelog-version-date">February 5, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>Hands-free mode via <code>watch_annotations</code> resource</li>
                 <li>Keyboard shortcut Cmd+Shift+F (Mac) / Ctrl+Shift+F (Windows) to toggle toolbar</li>
@@ -38,14 +38,14 @@ export default function Changelog() {
               </ul>
             </div>
             <div>
-              <span className="changelog-tag fixed">Fixed</span>
+              <span className="changelog-tag">Fixed</span>
               <ul>
                 <li>Production builds no longer health-check the MCP server by default</li>
                 <li>MCP tools no longer hang waiting for actions when the toolbar is collapsed</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag removed">Removed</span>
+              <span className="changelog-tag">Removed</span>
               <ul>
                 <li><code>wait_for_action</code> tool (superseded by <code>watch_annotations</code> resource)</li>
               </ul>
@@ -54,12 +54,12 @@ export default function Changelog() {
 
           <section>
             <h2>
-              <a href="https://www.npmjs.com/package/agentation/v/2.0.0">2.0.0</a>
+              <a href="https://www.npmjs.com/package/agentation/v/2.0.0" className="changelog-milestone-version">2.0.0</a>
               <span className="changelog-version-date">February 5, 2026</span>
             </h2>
             <p>The shift from &ldquo;annotate, copy, paste&rdquo; to &ldquo;annotate and collaborate.&rdquo; Agentation 2.0 is built around a Model Context Protocol server that turns your annotations into a live conversation with AI agents.</p>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>MCP server for real-time annotation sync</li>
                 <li>HTTP API + Server-Sent Events for live updates</li>
@@ -75,7 +75,7 @@ export default function Changelog() {
               </ul>
             </div>
             <div>
-              <span className="changelog-tag improved">Improved</span>
+              <span className="changelog-tag">Improved</span>
               <ul>
                 <li>Component detection now adapts to framework patterns (class components, functional components, etc.)</li>
                 <li>Cursor styles now reflect interaction state (crosshair when selecting, pointer when hovering)</li>
@@ -84,7 +84,7 @@ export default function Changelog() {
               </ul>
             </div>
             <div>
-              <span className="changelog-tag fixed">Fixed</span>
+              <span className="changelog-tag">Fixed</span>
               <ul>
                 <li>Fixed/sticky element positioning now accounts for scroll offset</li>
                 <li>SVG icons no longer broken by parent <code>fill</code> styles</li>
@@ -99,14 +99,14 @@ export default function Changelog() {
               <span className="changelog-version-date">January 24, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag improved">Improved</span>
+              <span className="changelog-tag">Improved</span>
               <ul>
                 <li>Unified quote text styling across markers</li>
                 <li>Tooltip font consistency with host page</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag fixed">Fixed</span>
+              <span className="changelog-tag">Fixed</span>
               <ul>
                 <li>Blurry tooltip text on high-DPI displays</li>
               </ul>
@@ -119,14 +119,14 @@ export default function Changelog() {
               <span className="changelog-version-date">January 23, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>Custom tooltips with arrow indicators</li>
                 <li>Subtle stroke around numbered markers for better contrast</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag improved">Improved</span>
+              <span className="changelog-tag">Improved</span>
               <ul>
                 <li>Help icon design and positioning</li>
               </ul>
@@ -139,13 +139,13 @@ export default function Changelog() {
               <span className="changelog-version-date">January 23, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>Collapsible computed styles section in Detailed format</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag improved">Improved</span>
+              <span className="changelog-tag">Improved</span>
               <ul>
                 <li>Toolbar visual polish and spacing</li>
               </ul>
@@ -158,7 +158,7 @@ export default function Changelog() {
               <span className="changelog-version-date">January 22, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>Programmatic API: <code>onAnnotationAdd</code>, <code>onAnnotationDelete</code>, <code>onAnnotationUpdate</code>, <code>onAnnotationsClear</code>, <code>onCopy</code> callbacks</li>
                 <li><code>copyToClipboard</code> prop to control clipboard behavior</li>
@@ -172,13 +172,13 @@ export default function Changelog() {
               <span className="changelog-version-date">January 22, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag added">Added</span>
+              <span className="changelog-tag">Added</span>
               <ul>
                 <li>Claude Code skill for Agentation commands</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag fixed">Fixed</span>
+              <span className="changelog-tag">Fixed</span>
               <ul>
                 <li>React key prop warning in annotation list</li>
               </ul>
@@ -191,13 +191,13 @@ export default function Changelog() {
               <span className="changelog-version-date">January 21, 2026</span>
             </h2>
             <div>
-              <span className="changelog-tag improved">Improved</span>
+              <span className="changelog-tag">Improved</span>
               <ul>
                 <li>Package exports now include TypeScript type conditions</li>
               </ul>
             </div>
             <div>
-              <span className="changelog-tag removed">Removed</span>
+              <span className="changelog-tag">Removed</span>
               <ul>
                 <li>Deprecated <code>AgentationCSS</code> export alias</li>
               </ul>
