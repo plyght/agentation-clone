@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Serif } from "next/font/google";
 import "./globals.css";
-import "../styles/demo-browser.css";
 import MobileNotice from "./components/MobileNotice";
 import MobileNav from "./components/MobileNav";
 import SideNav from "./components/SideNav";
@@ -19,8 +18,8 @@ const ibmPlexSerif = IBM_Plex_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Agentation",
-  description: "Visual feedback for AI agents",
+  title: "Agent Integrator | Stop Leaving Money on the Table",
+  description: "AI Venture Studio — We build AI systems that replace manual work. We co-build AI companies with founders who bring the vision.",
 };
 
 export default function RootLayout({

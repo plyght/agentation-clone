@@ -2,26 +2,23 @@
   position: relative;
   width: 100%;
   margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
 }
 
-.browser {
+.terminal {
   position: relative;
   width: 100%;
-  height: 300px;
+  max-width: 500px;
   background: #f6f5f4;
   border-radius: 12px;
   overflow: hidden;
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.06),
     0 4px 16px rgba(0, 0, 0, 0.08);
-  transition: opacity 0.3s ease;
 }
 
-.browser.faded {
-  opacity: 0.4;
-}
-
-.browserBar {
+.terminalBar {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -46,525 +43,12 @@
   background: #28c840;
 }
 
-.urlBar {
-  flex: 1;
-  margin-left: 8px;
-  padding: 4px 10px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
-  font-size: 10px;
-  color: rgba(0, 0, 0, 0.4);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-.content {
-  position: relative;
-  height: calc(100% - 38px);
-  display: flex;
-  overflow: hidden;
-}
-
-.sidebar {
-  width: 44px;
-  background: #fff;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 12px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-}
-
-.sidebarLogo {
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  margin-bottom: 8px;
-}
-
-.sidebarIcon {
-  width: 16px;
-  height: 16px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 4px;
-  transition:
-    box-shadow 0.15s ease,
-    background 0.15s ease;
-}
-
-.sidebarIcon.active {
-  background: rgba(0, 0, 0, 0.15);
-}
-
-.sidebarIcon.selected {
-  box-shadow: 0 0 0 2px #22c55e;
-  background: rgba(34, 197, 94, 0.15);
-}
-
-.sidebarIcon.circle {
-  border-radius: 50%;
-}
-
-.sidebarIcons {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.sidebarBottom {
-  margin-top: auto;
-}
-
-.main {
-  flex: 1;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  overflow: hidden;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.headerLeft {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo {
-  width: 18px;
-  height: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.12) 0%,
-    rgba(0, 0, 0, 0.08) 100%
-  );
-  border-radius: 5px;
-}
-
-.titleText {
-  font-size: 11px;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.5);
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-.button {
-  width: 55px;
-  height: 26px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
-}
-
-.metrics {
-  display: flex;
-  gap: 12px;
-}
-
-.metric {
-  flex: 1;
-  background: white;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition:
-    box-shadow 0.15s ease,
-    background 0.15s ease;
-}
-
-.metric.selected {
-  box-shadow: 0 0 0 2px #22c55e;
-  background: rgba(34, 197, 94, 0.04);
-}
-
-.metricLabel {
-  width: 45px;
-  height: 5px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 2px;
-  margin-bottom: 8px;
-}
-
-.metricValue {
-  width: 50px;
-  height: 18px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
-}
-
-.metricValue.wide {
-  width: 65px;
-}
-
-.table {
-  flex: 1;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-}
-
-.tableHeader {
-  display: flex;
-  padding: 10px 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  gap: 20px;
-}
-
-.th {
-  height: 6px;
-  background: rgba(0, 0, 0, 0.1);
-  border-radius: 2px;
-}
-
-.tableRow {
-  display: flex;
-  padding: 12px 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  gap: 20px;
-  align-items: center;
-}
-
-.td {
-  height: 7px;
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 2px;
-}
-
-.tdPill {
-  width: 48px;
-  height: 18px;
-  background: rgba(0, 0, 0, 0.04);
-  border-radius: 9px;
-}
-
-.buttonHighlight {
-  position: absolute;
-  border: 2px solid rgba(59, 130, 246, 0.7);
-  border-radius: 8px;
-  background: transparent;
-  pointer-events: none;
-  box-sizing: border-box;
-}
-
-.dragBox {
-  position: absolute;
-  border: 1.5px dashed #22c55e;
-  border-radius: 8px;
-  background: rgba(34, 197, 94, 0.08);
-  pointer-events: none;
-  z-index: 45;
-}
-
-.areaOutline {
-  position: absolute;
-  border: 2px dashed #22c55e;
-  border-radius: 8px;
-  background: rgba(34, 197, 94, 0.05);
-  pointer-events: none;
-  z-index: 44;
-}
-
-.cursor {
-  position: absolute;
-  pointer-events: none;
-  z-index: 100;
-  display: grid;
-}
-
-.cursorPointer,
-.cursorCrosshair,
-.cursorIbeam {
-  grid-area: 1 / 1;
-  transform-origin: top left;
-}
-
-.cursorIbeam {
-  transform-origin: center center;
-}
-
-.cursor svg {
-  display: block;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-}
-
-.toolbar {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #1a1a1a;
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.25),
-    0 4px 16px rgba(0, 0, 0, 0.15);
-  transition:
-    width 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-    border-radius 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-    padding 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-    transform 0.15s ease,
-    background 0.15s ease;
-  width: 36px;
-  height: 36px;
-  border-radius: 18px;
-}
-
-.toolbar.hovered:not(.expanded) {
-  background: #2a2a2a;
-  transform: scale(1.05);
-}
-
-.toolbar.clicking:not(.expanded) {
-  background: #333;
-  transform: scale(0.95);
-}
-
-.toolbar.expanded {
-  width: 200px;
-  border-radius: 20px;
-  padding: 0 6px;
-  justify-content: flex-start;
-}
-
-.toolbarIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.toolbar.expanded .toolbarIcon {
-  display: none;
-}
-
-.toolbarButtons {
-  display: none;
-  align-items: center;
-  gap: 3px;
-}
-
-.toolbar.expanded .toolbarButtons {
-  display: flex;
-}
-
-.toolbarBtn {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: transparent;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.85);
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    opacity 0.2s ease;
-  cursor: pointer;
-}
-
-.toolbarBtn.active {
-  color: #3b82f6;
-  background-color: rgba(59, 130, 246, 0.25);
-}
-
-.toolbarBtn.hovered {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.toolbarBtn.disabled {
-  opacity: 0.35;
-}
-
-.toolbarDivider {
-  width: 1px;
-  height: 12px;
-  background: rgba(255, 255, 255, 0.15);
-  margin: 0 2px;
-}
-
-.popup {
-  position: absolute;
-  width: 200px;
-  padding: 10px 12px 12px;
-  background: #1a1a1a;
-  border-radius: 14px;
-  box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.08);
-  z-index: 50;
-  transform: translateX(-50%);
-}
-
-.popupHeader {
-  font-size: 10px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 6px;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-}
-
-.popupInput {
-  width: 100%;
-  height: 40px;
-  padding: 6px 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  font-size: 11px;
-  color: #fff;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  line-height: 1.4;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-}
-
-.popupActions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 5px;
-  margin-top: 6px;
-}
-
-.popupBtn {
-  padding: 5px 12px;
-  font-size: 10px;
-  font-weight: 500;
-  border-radius: 14px;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  border: none;
-  cursor: pointer;
-}
-
-.popupBtn.cancel {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.popupBtn.submit {
-  background: #3b82f6;
-  color: white;
-}
-
-.popupBtn.submit.green {
-  background: #22c55e;
-}
-
-.popupBtn.submit.orange {
-  background: #f59e0b;
-}
-
-.marker {
-  position: absolute;
-  width: 22px;
-  height: 22px;
-  background: #3b82f6;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 600;
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  z-index: 40;
-  transform: translate(-50%, -50%);
-}
-
-.marker.blue {
-  background: #3b82f6;
-}
-
-.marker.green {
-  background: #34c759;
-  border-radius: 6px;
-  width: 26px;
-  height: 26px;
-}
-
-.marker.orange {
-  background: #f59e0b;
-}
-
-.terminal {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  width: 340px;
-  height: 280px;
-  background: #faf9f7;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.08),
-    0 4px 16px rgba(0, 0, 0, 0.12),
-    0 12px 32px rgba(0, 0, 0, 0.08);
-  z-index: 60;
-}
-
-.terminalBar {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 12px;
-  background: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-}
-
-.terminalDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.terminalDot.red {
-  background: #ff5f57;
-}
-.terminalDot.yellow {
-  background: #febc2e;
-}
-.terminalDot.green {
-  background: #28c840;
-}
-
 .terminalTitle {
   flex: 1;
   text-align: center;
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.85);
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
   font-family:
     system-ui,
     -apple-system,
@@ -573,26 +57,74 @@
 }
 
 .terminalContent {
-  padding: 12px 14px;
+  padding: 18px;
   font-family: "SF Mono", "SFMono-Regular", ui-monospace, Consolas, monospace;
-  font-size: 10px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.65;
   color: rgba(0, 0, 0, 0.7);
-  white-space: pre-wrap;
-  overflow: hidden;
+  min-height: 320px;
+  position: relative;
 }
 
-.terminalWelcome {
-  margin-bottom: 8px;
+.terminalContent::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, rgba(246, 245, 244, 0.4));
+  pointer-events: none;
+}
+
+.terminalLine {
+  margin-bottom: 2px;
+}
+
+.terminalPrompt {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.terminalCommand {
+  color: #16a34a;
+}
+
+.terminalCursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.5);
+  margin-left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.tokenStats {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.2);
+  font-family: "SF Mono", "SFMono-Regular", ui-monospace, Consolas, monospace;
+  z-index: 1;
 }
 
 @media (max-width: 640px) {
-  .browser {
-    height: 260px;
+  .terminal {
     border-radius: 10px;
   }
 
-  .browserBar {
+  .terminalBar {
     padding: 8px 10px;
   }
 
@@ -601,166 +133,20 @@
     height: 6px;
   }
 
-  .urlBar {
-    font-size: 9px;
-    padding: 3px 8px;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .main {
-    padding: 12px;
-    gap: 10px;
-  }
-
-  .logo {
-    width: 14px;
-    height: 14px;
-  }
-
-  .titleText {
-    font-size: 10px;
-  }
-
-  .button {
-    width: 45px;
-    height: 22px;
-  }
-
-  .metrics {
-    gap: 8px;
-  }
-
-  .metric {
-    padding: 10px;
-  }
-
-  .metricLabel {
-    width: 35px;
-    height: 4px;
-    margin-bottom: 6px;
-  }
-
-  .metricValue {
-    width: 40px;
-    height: 14px;
-  }
-
-  .tableHeader {
-    padding: 8px 10px;
-    gap: 14px;
-  }
-
-  .th {
-    height: 5px;
-  }
-
-  .tableRow {
-    padding: 10px;
-    gap: 14px;
-  }
-
-  .td {
-    height: 6px;
-  }
-
-  .tdPill {
-    width: 38px;
-    height: 14px;
-  }
-
-  .toolbar {
-    width: 28px;
-    height: 28px;
-    border-radius: 14px;
-    bottom: 8px;
-    right: 8px;
-  }
-
-  .toolbar.expanded {
-    width: auto;
-    border-radius: 16px;
-    padding: 4px 8px;
-  }
-
-  .toolbarBtn {
-    width: 22px;
-    height: 22px;
-  }
-
-  .toolbarBtn svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .toolbarDivider {
-    height: 16px;
-    margin: 0 4px;
-  }
-
-  .popup {
-    width: 190px;
-    padding: 8px 10px 10px;
-    border-radius: 12px;
-  }
-
-  .popupHeader {
-    font-size: 9px;
-  }
-
-  .popupInput {
-    height: 32px;
-    font-size: 9px;
-  }
-
-  .popupBtn {
-    padding: 4px 10px;
-    font-size: 9px;
-  }
-
-  .marker {
-    width: 18px;
-    height: 18px;
-    font-size: 10px;
-  }
-
-  .marker.green {
-    width: 22px;
-    height: 22px;
-  }
-
-  .marker.orange {
-    width: 18px;
-    height: 18px;
-  }
-
-  .terminal {
-    top: 10px;
-    right: 10px;
-    left: 10px;
-    width: auto;
-    height: 240px;
-    border-radius: 8px;
-  }
-
-  .terminalBar {
-    padding: 10px 12px;
-  }
-
-  .terminalDot {
-    width: 10px;
-    height: 10px;
-  }
-
   .terminalTitle {
     font-size: 11px;
-    margin-right: 30px;
+    margin-right: 24px;
   }
 
   .terminalContent {
-    padding: 10px 12px;
+    padding: 12px;
+    font-size: 11px;
+    min-height: 280px;
+  }
+
+  .tokenStats {
     font-size: 9px;
+    bottom: 10px;
+    right: 12px;
   }
 }

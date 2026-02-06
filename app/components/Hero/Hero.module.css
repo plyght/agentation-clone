@@ -1,89 +1,17 @@
 .hero {
   max-width: 900px;
   margin: 0 auto;
-  padding: 4rem 2rem 2rem;
-}
-
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.title {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.9);
-}
-
-.underline {
-  position: relative;
-  display: inline-block;
-}
-
-.underline::after {
-  content: "";
-  position: absolute;
-  left: -2%;
-  right: -2%;
-  bottom: 0.1em;
-  height: 0.15em;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-  transform: rotate(-0.5deg);
-  z-index: -1;
-}
-
-.penUnderline {
-  position: relative;
-  display: inline-block;
-}
-
-.penUnderline::after {
-  content: "";
-  position: absolute;
-  left: -2%;
-  right: -2%;
-  bottom: 0.1em;
-  height: 0.2em;
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-  transform: rotate(0.5deg) scaleX(1.02);
-  z-index: -1;
-  border-radius: 2px;
-}
-
-.tagline {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: rgba(0, 0, 0, 0.6);
-  max-width: 700px;
-  margin: 0 auto;
+  padding: 2rem 2rem;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 3rem 1.5rem 1.5rem;
-  }
-
-  .title {
-    font-size: 1.75rem;
-  }
-
-  .tagline {
-    font-size: 1rem;
+    padding: 1.5rem 1.5rem;
   }
 }
 
 @media (max-width: 640px) {
   .hero {
-    padding: 2rem 1rem 1rem;
-  }
-
-  .title {
-    font-size: 1.5rem;
-  }
-
-  .tagline {
-    font-size: 0.9375rem;
+    padding: 1rem 1rem;
   }
 }

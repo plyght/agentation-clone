@@ -1,142 +1,65 @@
 "use client";
 
-import { useState, Fragment } from "react";
-import Link from "next/link";
+import { useState } from "react";
 
 const faqData = [
   {
-    title: "Basics",
+    title: "General",
     items: [
       {
-        question: "What is Agentation?",
+        question: "How is this different from a dev shop?",
         answer:
-          'Agentation is a floating toolbar that lets you annotate web pages and generate structured feedback for AI coding agents. Click elements, select text, and copy markdown that agents can parse to find and fix issues in your codebase.</p><p>It grew out of <a href="https://benji.org/annotating" target="_blank" rel="noopener noreferrer" class="faq-link">a post by Benji Taylor</a> exploring how to give better feedback to AI agents, and has since been packaged for anyone to use.',
+          "Dev shops sell hours. We sell outcomes. One team from diagnosis to deployment. We don't just build what you ask for — we figure out what actually needs to be built, then ship it. Flat fee, working systems, no surprises.",
       },
       {
-        question: "Why not just screenshot and annotate?",
+        question: "What does AI automation mean for my business?",
         answer:
-          'Screenshots lose the connection to code. When you annotate a screenshot, the AI has to guess which component you mean by "the blue button." Agentation gives agents actual selectors like <code>.sidebar > button.primary</code> that they can <code>grep</code> for in your codebase. It\'s the difference between "fix this" and "fix this at <code>src/components/Button.tsx:42</code>."',
+          "It means replacing manual, repetitive processes with intelligent systems that work 24/7. Data entry, lead routing, client communications, reporting — if a human is doing it the same way every time, AI can probably do it faster and more accurately.",
       },
       {
-        question: "How do I install it?",
+        question: "How does pricing work?",
         answer:
-          "Install via npm with <code>npm install agentation -D</code>, then import and add the <code>&lt;Agentation /&gt;</code> component to your app. Works with React 18 and Next.js.",
-      },
-      {
-        question: "Is there a Claude Code integration?",
-        answer:
-          "Yes. Run <code>npx skills add benjitaylor/agentation</code> in your terminal, then <code>/agentation</code> in Claude Code. It detects your framework, installs the package, creates a provider component, and wires it into your layout.",
+          "Flat fee for development services. We scope the project, agree on deliverables, and quote a fixed price. No hourly billing, no scope creep surprises. For partnerships, we work on an equity basis — shared risk, shared upside.",
       },
     ],
   },
   {
-    title: "Usage",
+    title: "Development Services",
     items: [
       {
-        question: "How does element identification work?",
+        question: "What kind of businesses do you work with?",
         answer:
-          "Agentation automatically identifies elements using class names, IDs, text content, and semantic structure. Buttons are named by their text, headings by content, images by <code>alt</code> text. This makes it easy for agents to <code>grep</code> for elements in your codebase.",
+          "Businesses running on spreadsheets and manual processes. Insurance agencies, e-commerce brands, real estate developers, professional services firms — anyone with budget but zero AI expertise who knows they need automation but doesn't know where to start.",
       },
       {
-        question: "Does it detect React components?",
+        question: "How long does a typical project take?",
         answer:
-          "Yes. On React pages, Agentation traverses the fiber tree to find the component hierarchy for each annotated element. You'll see component names like <code>&lt;App&gt; &lt;Dashboard&gt; &lt;Button&gt;</code> in tooltips and output. This helps agents find the exact component file to edit. You can configure detection mode (Filtered, Smart, All, or Off) in settings.",
+          "Weeks, not months. We ship working systems fast because we've done this before. Most projects go from diagnosis to deployment in 4-8 weeks depending on complexity.",
       },
       {
-        question: "Can I annotate text selections?",
+        question: "What do you actually build?",
         answer:
-          "Yes. Select any text on the page to annotate specific content. The selected text is quoted in the output, making it easy for agents to search for exact strings in your code.",
-      },
-      {
-        question: "How do I collapse the toolbar?",
-        answer:
-          'Click <svg style="display:inline-block;vertical-align:-0.45em;width:1.5em;height:1.5em;margin:0 -0.1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16.25 16.25L7.75 7.75" /><path d="M7.75 16.25L16.25 7.75" /></svg> or press <code>Escape</code> to collapse the toolbar. It stays minimal until you need it again.',
-      },
-      {
-        question: "Can I pause animations?",
-        answer:
-          'Yes. Click <svg style="display:inline-block;vertical-align:-0.45em;width:1.5em;height:1.5em;margin:0 -0.1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 6L8 18" /><path d="M16 18L16 6" /></svg> to freeze CSS animations and transitions. Note that JavaScript-driven animations (like Framer Motion, React Spring, or GSAP) won\'t be affected.',
-      },
-      {
-        question: "Can I customize marker colors?",
-        answer:
-          'Yes. Click <svg style="display:inline-block;vertical-align:-0.45em;width:1.5em;height:1.5em;margin:0 -0.1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.6504 5.81117C10.9939 4.39628 13.0061 4.39628 13.3496 5.81117C13.5715 6.72517 14.6187 7.15891 15.4219 6.66952C16.6652 5.91193 18.0881 7.33479 17.3305 8.57815C16.8411 9.38134 17.2748 10.4285 18.1888 10.6504C19.6037 10.9939 19.6037 13.0061 18.1888 13.3496C17.2748 13.5715 16.8411 14.6187 17.3305 15.4219C18.0881 16.6652 16.6652 18.0881 15.4219 17.3305C14.6187 16.8411 13.5715 17.2748 13.3496 18.1888C13.0061 19.6037 10.9939 19.6037 10.6504 18.1888C10.4285 17.2748 9.38135 16.8411 8.57815 17.3305C7.33479 18.0881 5.91193 16.6652 6.66952 15.4219C7.15891 14.6187 6.72517 13.5715 5.81117 13.3496C4.39628 13.0061 4.39628 10.9939 5.81117 10.6504C6.72517 10.4285 7.15891 9.38134 6.66952 8.57815C5.91193 7.33479 7.33479 5.91192 8.57815 6.66952C9.38135 7.15891 10.4285 6.72517 10.6504 5.81117Z"/><circle cx="12" cy="12" r="2.5"/></svg> to choose from preset colors for annotation markers. Your preference is saved in <code>localStorage</code>.',
-      },
-      {
-        question: "Where are annotations stored?",
-        answer:
-          "By default, annotations are stored in <code>localStorage</code>, keyed by page pathname. They persist across page refreshes but are cleared after 7 days. With Agent Sync enabled, annotations are stored on the MCP server instead, which persists across pages and sessions.",
-      },
-      {
-        question: "What is Agent Sync?",
-        answer:
-          "Agent Sync connects the browser toolbar to an MCP server, enabling real-time sync between reviewers and AI agents. Annotations persist across pages and can be accessed via MCP tools. Run <code>npx agentation-mcp server</code> to start the server, then enable Agent Sync in settings.",
+          "Custom AI implementations, business process automations, and software tailored to how your business actually runs. CRMs, dashboards, AI agents, data pipelines — whatever solves the bottleneck.",
       },
     ],
   },
   {
-    title: "Output",
+    title: "Partnerships",
     items: [
       {
-        question: "What output formats are available?",
+        question: "Why partner instead of hiring you?",
         answer:
-          "Four formats: <code>Compact</code> (minimal context), <code>Standard</code> (balanced), <code>Detailed</code> (full context with bounding boxes), and <code>Forensic</code> (maximum detail including computed styles). Choose based on how much context your AI agent needs.",
+          "You can hire developers anywhere. What you can't hire is someone who treats your company like their own. Who says no to bad ideas because they have skin in the game. A partnership means we're building this together — not billing you by the hour.",
       },
       {
-        question: "Which AI agents work with Agentation?",
+        question: "What kind of founders do you partner with?",
         answer:
-          "Any AI coding agent that accepts text input. The markdown output is agent-agnostic and works with Claude, GPT-4, Cursor, Copilot, and others. Just paste the copied output into your agent's chat.",
+          "We look for domain expertise and distribution capability. You understand your industry better than anyone. You have access to customers. We bring the full-stack technical capability to turn that into a product and a company.",
       },
       {
-        question: "Can multiple people share annotations?",
+        question: "Do you take every deal?",
         answer:
-          "With Agent Sync enabled, annotations sync to a shared server and can be accessed by multiple users or agents. Without Agent Sync, annotations are stored locally in each user's browser - you can still share by copying the markdown output.",
-      },
-    ],
-  },
-  {
-    title: "Technical",
-    items: [
-      {
-        question: "Is there a React dependency?",
-        answer:
-          "Yes, Agentation requires React 18+ as a peer dependency. It's built as a React component to integrate seamlessly with modern React applications.",
-      },
-      {
-        question: "Does it work with TypeScript?",
-        answer:
-          "Yes. Agentation is written in TypeScript and exports full type definitions. Props like <code>demoAnnotations</code> and configuration options are fully typed.",
-      },
-      {
-        question: "Does it work with SSR/SSG?",
-        answer:
-          "Yes. Agentation is a client-side component that hydrates after page load. It works with Next.js, Remix, Astro, and other SSR/SSG frameworks without issues.",
-      },
-      {
-        question: "Does it affect performance?",
-        answer:
-          "Minimal impact. Agentation only adds event listeners and renders a small toolbar. It doesn't modify your existing DOM or intercept network requests. The annotation markers are lightweight SVG overlays.",
-      },
-      {
-        question: "Should I include it in production?",
-        answer:
-          "You can, but it's designed as a development tool. We recommend conditionally rendering it only in development or behind a feature flag. The toolbar is invisible to users until activated.",
-      },
-      {
-        question: "Can I annotate iframes or shadow DOM?",
-        answer:
-          "Currently, Agentation only annotates elements in the main document. Iframes and shadow DOM content are not accessible due to browser security restrictions.",
-      },
-      {
-        question:
-          "I\u2019m having issues with better-sqlite3 in the MCP server",
-        answer:
-          'The MCP server uses <code>better-sqlite3</code> as a native dependency, which occasionally causes build or runtime issues depending on your Node.js version and platform. If you run into problems, check the <a href="https://github.com/WiseLibs/better-sqlite3/blob/master/docs/troubleshooting.md" target="_blank" rel="noopener noreferrer" class="faq-link">better-sqlite3 troubleshooting guide</a> for solutions.',
-      },
-      {
-        question: "How do I report bugs or request features?",
-        answer:
-          'Open an issue on <a href="https://github.com/benjitaylor/agentation/issues" target="_blank" rel="noopener noreferrer" class="faq-link">GitHub</a>. Pull requests are welcome too.',
+          "No. We're selective. We take the ones we'd bet four years of our lives on. If we don't believe in the idea or the founder, we'll say so — and probably point you to someone who's a better fit.",
       },
     ],
   },
@@ -269,7 +192,7 @@ export default function FAQ() {
         <article className="article">
           <header>
             <h1>FAQ</h1>
-            <p className="tagline">Common questions about Agentation</p>
+            <p className="tagline">Questions? We have answers.</p>
           </header>
           {faqData.map((category, catIdx) => (
             <div className="faq-category" key={catIdx}>
@@ -296,33 +219,8 @@ export default function FAQ() {
             alignItems: "center",
           }}
         >
-          <p>
-            Made by{" "}
-            <a
-              href="https://x.com/benjitaylor"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Benji Taylor
-            </a>
-            ,{" "}
-            <a
-              href="https://x.com/seldom"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Dennis Jin
-            </a>
-            , and{" "}
-            <a
-              href="https://x.com/alexvanderzon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Alex Vanderzon
-            </a>
-          </p>
-          <Link href="/colophon">Colophon</Link>
+          <p>© 2026 Agent Integrator</p>
+          <a href="mailto:team@agentintegrator.io">team@agentintegrator.io</a>
         </footer>
       </main>
     </>

@@ -1,35 +1,8 @@
-import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer>
-      <p>
-        Made by{" "}
-        <a
-          href="https://x.com/benjitaylor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Benji Taylor
-        </a>
-        ,{" "}
-        <a
-          href="https://x.com/seldom"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Dennis Jin
-        </a>
-        , and{" "}
-        <a
-          href="https://x.com/alexvanderzon"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Alex Vanderzon
-        </a>
-      </p>
-      <Link href="/colophon">Colophon</Link>
+      <p>© 2026 Agent Integrator</p>
+      <a href="mailto:team@agentintegrator.io">team@agentintegrator.io</a>
     </footer>
   );
 }
