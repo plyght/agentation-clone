@@ -49,16 +49,16 @@ export default function CopyButton({ text }: CopyButtonProps) {
         fill="none"
         aria-hidden="true"
       >
-        <rect
-          x="4.75"
-          y="8.75"
-          width="10.5"
-          height="10.5"
-          rx="2"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <g>
+        <g style={{ opacity: copied ? 0 : 1, transition: "opacity 0.15s ease" }}>
+          <rect
+            x="4.75"
+            y="8.75"
+            width="10.5"
+            height="10.5"
+            rx="2"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          />
           <rect
             x="8.75"
             y="4.75"
@@ -75,7 +75,7 @@ export default function CopyButton({ text }: CopyButtonProps) {
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          opacity={copied ? 1 : 0}
+          style={{ opacity: copied ? 1 : 0, transition: "opacity 0.15s ease" }}
         />
       </svg>
     </button>
