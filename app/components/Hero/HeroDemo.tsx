@@ -219,6 +219,7 @@ export default function HeroDemo() {
                 initial={{ opacity: 0, scale: 0.98 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.12, ease: "easeOut" }}
                 style={{
                   position: "absolute",
                   top: "14px",
@@ -234,6 +235,7 @@ export default function HeroDemo() {
                 className={styles.areaOutline}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                transition={{ duration: 0.15, ease: "easeInOut" }}
                 style={{
                   left: "30px",
                   top: "180px",

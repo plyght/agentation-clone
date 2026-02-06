@@ -4,36 +4,63 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import BunnyLogo from "./BunnyLogo";
 
+const pageSubNav: Record<string, { label: string; href: string }[]> = {
+  "/features": [
+    { label: "Annotation Modes", href: "#annotation-modes" },
+    { label: "Toolbar Controls", href: "#toolbar-controls" },
+    { label: "Marker Types", href: "#marker-types" },
+    { label: "Smart Identification", href: "#smart-identification" },
+    { label: "Computed Styles", href: "#computed-styles" },
+    { label: "React Detection", href: "#react-detection" },
+    { label: "Keyboard Shortcuts", href: "#keyboard-shortcuts" },
+    { label: "Agent Sync", href: "#agent-sync" },
+    { label: "Settings", href: "#settings" },
+  ],
+};
+
+let hasAnimatedGlobal = false;
+
 export default function SideNav() {
   const pathname = usePathname();
-  const [typedChars, setTypedChars] = useState<string[]>([]);
+  const [showBunny, setShowBunny] = useState(hasAnimatedGlobal);
+  const [hasAnimated, setHasAnimated] = useState(hasAnimatedGlobal);
   const fullText = "agentation";
+  const timingDelays = [0.1, 0.4, 0.48, 0.54, 0.62, 0.7, 1, 1.08, 1.14, 1.22, 1.3];
+  const bunnyShowTime = 1.0;
 
   useEffect(() => {
-    const chars = fullText.split("");
-    chars.forEach((_, index) => {
-      setTimeout(() => {
-        setTypedChars((prev) => [...prev, chars[index]]);
-      }, 100 * (index + 1));
-    });
+    if (hasAnimatedGlobal) {
+      setShowBunny(true);
+      setHasAnimated(true);
+      return;
+    }
+
+    const bunnyTimer = setTimeout(() => {
+      setShowBunny(true);
+      hasAnimatedGlobal = true;
+    }, bunnyShowTime * 1000);
+
+    return () => clearTimeout(bunnyTimer);
   }, []);
 
   return (
     <nav className="side-nav">
       <div className="side-nav-logo">
-        <div className="bunny-slide-container">
-          <a tabIndex={-1} href="/" style={{ display: "flex", cursor: "default", pointerEvents: "none" }}>
-            <BunnyLogo />
-          </a>
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-          <span className="typed-slash">/</span>
-          {typedChars.map((char, index) => (
+        {showBunny && (
+          <div className={hasAnimated ? "bunny-slide-container skip-animation" : "bunny-slide-container"}>
+            <a tabIndex={-1} href="/" style={{ display: "flex", cursor: "default", pointerEvents: "none" }}>
+              <BunnyLogo />
+            </a>
+          </div>
+        )}
+        <div>
+          {"/agentation".split("").map((char, index) => (
             <span
               key={index}
-              className="typed-char"
+              className={hasAnimated ? "" : index === 0 ? "typed-slash" : "typed-char"}
               style={{
-                animationDelay: `${index * 0.1}s`,
+                color: index === 0 ? "#4C74FF" : "inherit",
+                animationDelay: hasAnimated ? "0s" : index === 0 ? "0s" : `${timingDelays[index]}s`,
               }}
             >
               {char}
@@ -56,6 +83,42 @@ export default function SideNav() {
           <a className={`nav-link${pathname === "/features" ? " active" : ""}`} href="/features">
             Features
           </a>
+          {pathname === "/features" && pageSubNav["/features"] && (
+            <aside style={{
+              marginTop: "0.5rem",
+              marginLeft: "0.25rem",
+              paddingLeft: "0.75rem",
+              borderLeft: "1px solid rgba(0,0,0,0.08)",
+              animation: "slideUp 0.3s ease"
+            }}>
+              <ul style={{ 
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.375rem",
+                listStyle: "none",
+                padding: 0 
+              }}>
+                {pageSubNav["/features"].map((item) => (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      style={{
+                        fontSize: "0.6875rem",
+                        color: "rgba(0,0,0,0.3)",
+                        transition: "color 0.15s ease",
+                        display: "block",
+                        textDecoration: "none"
+                      }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = "rgba(0,0,0,0.5)"}
+                      onMouseLeave={(e) => e.currentTarget.style.color = "rgba(0,0,0,0.3)"}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
         </div>
         <div className="nav-item-wrapper">
           <a className={`nav-link${pathname === "/output" ? " active" : ""}`} href="/output">

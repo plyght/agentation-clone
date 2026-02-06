@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
@@ -19,19 +19,45 @@ const navLinks = [
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showBunny, setShowBunny] = useState(false);
+  const [showText, setShowText] = useState(false);
   const pathname = usePathname();
+  const timingDelays = [0.1, 0.4, 0.48, 0.54, 0.62, 0.7, 1, 1.08, 1.14, 1.22, 1.3].map(d => d + 0.5);
+
+  useEffect(() => {
+    setShowBunny(true);
+    const textTimer = setTimeout(() => setShowText(true), 500);
+    return () => clearTimeout(textTimer);
+  }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <nav className="mobile-nav">
       <div className="mobile-nav-header">
-        <Link href="/" className="mobile-typed-logo">
-          <div className="mobile-bunny-container show">
-            <img src="/assets/bunny-logo-nav.svg" alt="" width={28} height={28} />
+        <div className="mobile-typed-logo">
+          <div className={`mobile-bunny-container${showBunny ? " show" : ""}`}>
+            {showBunny && (
+              <img src="/assets/bunny-logo-nav.svg" alt="" width={28} height={28} />
+            )}
           </div>
-          <div style={{transform:"translateY(1px)"}}>
-            <span style={{color:"#4c74ff"}}>/</span>agentation
+          <div>
+            {showText && "/agentation".split("").map((char, index) => (
+              <span
+                key={index}
+                className="mobile-typed-char"
+                style={{
+                  color: index === 0 ? "#4C74FF" : "inherit",
+                  animationDelay: `${timingDelays[index] - timingDelays[0]}s`,
+                }}
+              >
+                {char}
+              </span>
+            ))}
           </div>
-        </Link>
+        </div>
         <button
           className={`mobile-nav-toggle ${isOpen ? "open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -50,7 +76,6 @@ export default function MobileNav() {
               key={link.href}
               href={link.href}
               className={`mobile-nav-link ${pathname === link.href ? "active" : ""}`}
-              onClick={() => setIsOpen(false)}
             >
               {link.label}
             </Link>

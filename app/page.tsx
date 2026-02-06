@@ -61,7 +61,7 @@ export default function Home() {
                 )}
               </svg>
             </button>
-            <h1 style={{ fontSize: "2rem", lineHeight: 1.15, marginBottom: "0.5rem" }}>
+            <h1>
               <span className="sketchy-underline">Point at bugs.</span>
               <br />
               Let AI <span className="pen-underline">fix them.</span>

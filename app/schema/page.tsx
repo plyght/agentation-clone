@@ -1,3 +1,5 @@
+"use client";
+
 import SideNav from "../components/SideNav";
 import CopyButton from "../components/CopyButton";
 import SchemaDiagram from "../components/diagrams/SchemaDiagram";
@@ -7,18 +9,33 @@ export default function SchemaPage() {
     <>
       <SideNav />
       <main className="main-content">
-        <div className="article">
-          <header>
-            <h1>Annotation Format Schema v1.0</h1>
+        <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
+          <header style={{ animation: "slideUp 0.6s ease" }}>
+            <h1>
+              Annotation Format Schema{" "}
+              <span style={{ 
+                fontSize: "0.7em",
+                background: "linear-gradient(135deg, rgba(76,116,255,0.15), rgba(76,116,255,0.25))",
+                padding: "0.15rem 0.5rem",
+                borderRadius: "0.35rem",
+                fontWeight: 600,
+                color: "rgba(76,116,255,0.9)"
+              }}>v1.0</span>
+            </h1>
             <p className="tagline">
               A portable format for structured UI feedback
             </p>
           </header>
 
-          <section>
+          <section style={{ animation: "slideUp 0.7s ease" }}>
             <h2>Overview</h2>
             <p>
-              The Annotation Format Schema (AFS) is an open format for
+              The <span style={{
+                background: "linear-gradient(120deg, rgba(76,116,255,0.08), rgba(76,116,255,0.15))",
+                padding: "0.15rem 0.4rem",
+                borderRadius: "0.3rem",
+                fontWeight: 500
+              }}>Annotation Format Schema (AFS)</span> is an open format for
               representing UI feedback in a way that AI agents can understand
               and act on. Think of it like smart Figma comments for your
               running app.

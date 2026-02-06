@@ -1,3 +1,5 @@
+"use client";
+
 import SideNav from "../components/SideNav";
 import CopyButton from "../components/CopyButton";
 import McpDiagram from "../components/diagrams/McpDiagram";
@@ -7,18 +9,25 @@ export default function MCPPage() {
     <>
       <SideNav />
       <main className="main-content">
-        <div className="article">
-          <header>
-            <h1>MCP Server</h1>
+        <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
+          <header style={{ animation: "slideUp 0.6s ease" }}>
+            <h1>
+              <span className="sketchy-underline" style={{ "--marker-color": "#22c55e" } as any}>MCP Server</span>
+            </h1>
             <p className="tagline">
               Connect AI agents to web page annotations via the Model Context Protocol
             </p>
           </header>
 
-          <section>
+          <section style={{ animation: "slideUp 0.7s ease" }}>
             <h2>Overview</h2>
             <p>
-              The <code>agentation-mcp</code> package provides a Model Context
+              The <code style={{ 
+                background: "linear-gradient(120deg, rgba(34,197,94,0.08), rgba(34,197,94,0.15))",
+                padding: "0.15rem 0.4rem",
+                borderRadius: "0.3rem",
+                fontWeight: 500
+              }}>agentation-mcp</code> package provides a Model Context
               Protocol (MCP) server that exposes your annotations to AI agents
               like Claude Code. Instead of copy-pasting markdown, agents can
               query, acknowledge, and resolve annotations in real-time.
@@ -28,9 +37,44 @@ export default function MCPPage() {
               from the browser toolbar, and an MCP server that exposes them to
               agents.
             </p>
-            <p>
-              <code>toolbar</code> → <code>server</code> → <code>agent</code>
-            </p>
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "1rem",
+              padding: "1.25rem",
+              background: "linear-gradient(135deg, rgba(34,197,94,0.04), rgba(34,197,94,0.01))",
+              borderRadius: "0.75rem",
+              border: "1px solid rgba(34,197,94,0.1)",
+              marginTop: "1rem",
+              fontFamily: "'SF Mono', monospace",
+              fontSize: "0.875rem",
+              fontWeight: 500
+            }}>
+              <code style={{ 
+                padding: "0.375rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                color: "rgba(0,0,0,0.7)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+              }}>toolbar</code>
+              <span style={{ color: "rgba(34,197,94,0.6)", fontSize: "1.25rem" }}>→</span>
+              <code style={{ 
+                padding: "0.375rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                color: "rgba(0,0,0,0.7)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+              }}>server</code>
+              <span style={{ color: "rgba(34,197,94,0.6)", fontSize: "1.25rem" }}>→</span>
+              <code style={{ 
+                padding: "0.375rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                color: "rgba(0,0,0,0.7)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.05)"
+              }}>agent</code>
+            </div>
 
             <McpDiagram />
           </section>
@@ -131,13 +175,17 @@ export default function MCPPage() {
             </p>
           </section>
 
-          <section>
+          <section style={{ animation: "slideUp 0.9s ease" }}>
             <h2>MCP Tools</h2>
             <p>
               Nine tools are exposed to AI agents via the Model Context
               Protocol:
             </p>
-            <table>
+            <table style={{
+              borderRadius: "0.75rem",
+              overflow: "hidden",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)"
+            }}>
               <thead>
                 <tr>
                   <th>Tool</th>
@@ -252,17 +300,69 @@ export default function MCPPage() {
             </p>
           </section>
 
-          <section>
-            <h2>Hands-Free Mode</h2>
+          <section style={{ 
+            padding: "1.5rem",
+            background: "linear-gradient(135deg, rgba(139,92,246,0.04), rgba(139,92,246,0.01))",
+            borderRadius: "0.75rem",
+            border: "1px solid rgba(139,92,246,0.1)",
+            animation: "slideUp 1.1s ease"
+          }}>
+            <h2 style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem"
+            }}>
+              <span style={{ fontSize: "1.1rem" }}>🤖</span> Hands-Free Mode
+            </h2>
             <p>
               With <code>agentation_watch_annotations</code>, you can set up a
               fully autonomous loop:
             </p>
-            <ol>
-              <li>Agent calls <code>agentation_watch_annotations</code></li>
-              <li>Annotations arrive from the toolbar</li>
-              <li>Agent processes each one: acknowledge, fix the code, resolve</li>
-              <li>Agent loops back to watch for more</li>
+            <ol style={{ 
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+              counterReset: "step-counter",
+              listStyle: "none",
+              paddingLeft: 0
+            }}>
+              {[
+                "Agent calls agentation_watch_annotations",
+                "Annotations arrive from the toolbar",
+                "Agent processes each one: acknowledge, fix the code, resolve",
+                "Agent loops back to watch for more"
+              ].map((step, i) => (
+                <li key={i} style={{
+                  position: "relative",
+                  paddingLeft: "3rem",
+                  counterIncrement: "step-counter",
+                  animation: `fadeIn 0.3s ease ${0.1 * i}s both`
+                }}>
+                  <span style={{
+                    position: "absolute",
+                    left: "0",
+                    top: "0",
+                    width: "2rem",
+                    height: "2rem",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    background: "linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.25))",
+                    borderRadius: "50%",
+                    fontSize: "0.875rem",
+                    fontWeight: 600,
+                    color: "rgba(139,92,246,0.9)"
+                  }}>{i + 1}</span>
+                  {step.includes("agentation_watch_annotations") ? (
+                    <span>Agent calls <code style={{
+                      background: "rgba(139,92,246,0.1)",
+                      padding: "0.15rem 0.4rem",
+                      borderRadius: "0.3rem",
+                      fontWeight: 500
+                    }}>agentation_watch_annotations</code></span>
+                  ) : step}
+                </li>
+              ))}
             </ol>
             <p>
               Add this to your project <code>CLAUDE.md</code>:

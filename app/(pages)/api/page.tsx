@@ -1,3 +1,5 @@
+"use client";
+
 import SideNav from "../../components/SideNav";
 import CopyButton from "../../components/CopyButton";
 
@@ -6,25 +8,66 @@ export default function Api() {
     <>
       <SideNav />
       <main className="main-content">
-        <div className="article">
-          <header>
-            <h1>API</h1>
+        <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
+          <header style={{ animation: "slideUp 0.6s ease" }}>
+            <h1>
+              <span style={{
+                background: "linear-gradient(90deg, #4c74ff, #7b9fff)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text"
+              }}>API</span>
+            </h1>
             <p className="tagline">Programmatic access for developers</p>
           </header>
 
-          <section>
+          <section style={{ animation: "slideUp 0.7s ease" }}>
             <h2>Overview</h2>
             <p>Agentation exposes callbacks for every annotation event, allowing you to build custom integrations and workflows:</p>
-            <ul>
-              <li>Sync annotations to database</li>
-              <li>Build analytics dashboards</li>
-              <li>Create custom AI integrations</li>
+            <ul style={{
+              display: "grid",
+              gap: "0.75rem",
+              padding: "1rem",
+              background: "linear-gradient(135deg, rgba(76,116,255,0.03), rgba(76,116,255,0.01))",
+              borderRadius: "0.75rem",
+              border: "1px solid rgba(76,116,255,0.08)"
+            }}>
+              {["Sync annotations to database", "Build analytics dashboards", "Create custom AI integrations"].map((item, i) => (
+                <li key={i} style={{
+                  padding: "0.75rem 1rem",
+                  background: "#fff",
+                  borderRadius: "0.5rem",
+                  borderLeft: "3px solid rgba(76,116,255,0.3)",
+                  transition: "all 0.2s ease",
+                  animation: `fadeIn 0.3s ease ${0.1 * i}s both`,
+                  cursor: "default"
+                }} onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateX(4px)";
+                  e.currentTarget.style.borderLeftColor = "rgba(76,116,255,0.6)";
+                }} onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "translateX(0)";
+                  e.currentTarget.style.borderLeftColor = "rgba(76,116,255,0.3)";
+                }}>{item}</li>
+              ))}
             </ul>
           </section>
 
-          <section>
-            <h2>Props</h2>
-            <div className="props-list">
+          <section style={{ animation: "slideUp 0.8s ease" }}>
+            <h2>
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem"
+              }}>
+                <span style={{ fontSize: "1rem" }}>⚙️</span> Props
+              </span>
+            </h2>
+            <div className="props-list" style={{
+              background: "rgba(76,116,255,0.02)",
+              padding: "1.5rem",
+              borderRadius: "0.75rem",
+              border: "1px solid rgba(76,116,255,0.06)"
+            }}>
               <div className="prop-item">
                 <div className="prop-header">
                   <code>onAnnotationAdd</code>

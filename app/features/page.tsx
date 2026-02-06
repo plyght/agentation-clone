@@ -1,3 +1,5 @@
+"use client";
+
 import SideNav from "../components/SideNav";
 import AnnotationModesDemo from "../components/features/AnnotationModesDemo";
 import AgentSyncDemo from "../components/features/AgentSyncDemo";
@@ -11,21 +13,44 @@ export default function Features() {
     <>
       <SideNav />
       <main className="main-content">
-        <div className="article">
-          <header>
-            <h1>Features</h1>
+        <div className="article" style={{ animation: "fadeIn 0.5s ease" }}>
+          <header style={{ animation: "slideUp 0.6s ease" }}>
+            <h1>
+              <span className="pen-underline">Features</span>
+            </h1>
             <p className="tagline">Everything Agentation can do</p>
           </header>
 
-          <section>
-            <h2 id="annotation-modes">Annotation modes</h2>
+          <section style={{ animation: "slideUp 0.7s ease" }}>
+            <h2 id="annotation-modes">
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem"
+              }}>
+                <span style={{ fontSize: "1rem" }}>✏️</span> Annotation modes
+              </span>
+            </h2>
             <p>Click the tabs below to see examples of each annotation mode:</p>
             <AnnotationModesDemo />
           </section>
 
-          <section>
-            <h2 id="toolbar-controls">Toolbar controls</h2>
-            <ul>
+          <section style={{ animation: "slideUp 0.8s ease" }}>
+            <h2 id="toolbar-controls">
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem"
+              }}>
+                <span style={{ fontSize: "1rem" }}>🎛️</span> Toolbar controls
+              </span>
+            </h2>
+            <ul style={{
+              background: "linear-gradient(135deg, rgba(76,116,255,0.02), rgba(76,116,255,0.01))",
+              padding: "1.5rem",
+              borderRadius: "0.75rem",
+              border: "1px solid rgba(76,116,255,0.08)"
+            }}>
               <li>
                 <svg style={{display:"inline-block",verticalAlign:"-0.38em",width:"1.5em",height:"1.5em",margin:"0 -0.1em 0 0"}} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
                   <path d="M8 6L8 18"></path>
@@ -121,9 +146,22 @@ export default function Features() {
             </ul>
           </section>
 
-          <section>
-            <h2>Keyboard shortcuts</h2>
-            <table>
+          <section style={{ animation: "slideUp 1s ease" }}>
+            <h2>
+              <span style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem"
+              }}>
+                <span style={{ fontSize: "1rem" }}>⌨️</span> Keyboard shortcuts
+              </span>
+            </h2>
+            <table style={{
+              borderRadius: "0.75rem",
+              overflow: "hidden",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.06)",
+              background: "#fff"
+            }}>
               <thead>
                 <tr>
                   <th>Shortcut</th>
@@ -174,15 +212,68 @@ export default function Features() {
             <p style={{marginTop:"1rem",fontSize:"0.75rem",color:"rgba(0,0,0,0.5)",whiteSpace:"pre-line",lineHeight:1.3,animation:"fadeIn 0.3s ease"}}>Choose how much detail to include in your output.</p>
           </section>
 
-          <section className="limitations-section">
-            <h3 style={{fontSize:"0.75rem",fontWeight:500,color:"rgba(0,0,0,0.45)",marginBottom:"0.5rem"}}>Limitations</h3>
-            <ul style={{fontSize:"0.75rem",color:"rgba(0,0,0,0.5)",lineHeight:1.5}}>
-              <li><strong>Desktop only</strong> — requires a desktop browser</li>
-              <li><strong>Per-page storage</strong> — localStorage persists 7 days. Use <a href="/install#agent-integration">MCP server</a> for cross-page persistence.</li>
-              <li><strong>Static positions</strong> — markers don{"'"}t update if layout changes</li>
-              <li><strong>No screenshots</strong> — output is text-only</li>
-              <li><strong>CSS animations only</strong> — pause doesn{"'"}t work on JS animations (framer-motion, GSAP)</li>
-              <li><strong>React 18+ only</strong></li>
+          <section className="limitations-section" style={{
+            padding: "1.5rem",
+            background: "linear-gradient(135deg, rgba(245,158,11,0.03), rgba(245,158,11,0.01))",
+            borderRadius: "0.75rem",
+            border: "1px solid rgba(245,158,11,0.1)",
+            animation: "slideUp 1.2s ease"
+          }}>
+            <h3 style={{
+              fontSize:"0.875rem",
+              fontWeight:550,
+              color:"rgba(0,0,0,0.7)",
+              marginBottom:"1rem",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "0.5rem"
+            }}>
+              <span style={{ fontSize: "1rem" }}>⚠️</span> Limitations
+            </h3>
+            <ul style={{
+              fontSize:"0.8125rem",
+              color:"rgba(0,0,0,0.7)",
+              lineHeight:1.6,
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem"
+            }}>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>Desktop only</strong> — requires a desktop browser</li>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>Per-page storage</strong> — localStorage persists 7 days. Use <a href="/install#agent-integration">MCP server</a> for cross-page persistence.</li>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>Static positions</strong> — markers don{"'"}t update if layout changes</li>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>No screenshots</strong> — output is text-only</li>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>CSS animations only</strong> — pause doesn{"'"}t work on JS animations (framer-motion, GSAP)</li>
+              <li style={{ 
+                padding: "0.5rem 0.75rem",
+                background: "#fff",
+                borderRadius: "0.5rem",
+                transition: "transform 0.2s ease"
+              }}><strong>React 18+ only</strong></li>
             </ul>
           </section>
         </div>
