@@ -1,0 +1,249 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - link [ref=e145] [cursor=pointer]:
+        - /url: /
+        - img [ref=e146]
+      - generic [ref=e4]:
+        - generic [ref=e5]: /
+        - generic [ref=e6]: a
+        - generic [ref=e7]: g
+        - generic [ref=e8]: e
+        - generic [ref=e9]: "n"
+        - generic [ref=e10]: t
+        - generic [ref=e11]: a
+        - generic [ref=e12]: t
+        - generic [ref=e13]: i
+        - generic [ref=e14]: o
+        - generic [ref=e15]: "n"
+    - generic [ref=e16] [cursor=pointer]:
+      - link "Overview" [ref=e18]:
+        - /url: /
+      - link "Install" [ref=e20]:
+        - /url: /install
+      - link "Features" [ref=e22]:
+        - /url: /features
+      - link "Output" [ref=e24]:
+        - /url: /output
+      - link "Schema v1.0" [ref=e26]:
+        - /url: /schema
+        - text: Schema
+        - generic [ref=e27]: v1.0
+      - generic [ref=e28]: Tools
+      - link "MCP" [ref=e30]:
+        - /url: /mcp
+      - link "API" [ref=e32]:
+        - /url: /api
+      - link "Webhooks" [ref=e34]:
+        - /url: /webhooks
+      - generic [ref=e35]: Resources
+      - link "Changelog" [ref=e37]:
+        - /url: /changelog
+      - link "Blog" [ref=e39]:
+        - /url: /blog
+      - link "FAQ" [ref=e41]:
+        - /url: /faq
+    - generic [ref=e42]:
+      - link "v2.1.1" [ref=e43] [cursor=pointer]:
+        - /url: https://www.npmjs.com/package/agentation
+      - generic [ref=e44]: ·
+      - link "GitHub" [ref=e45] [cursor=pointer]:
+        - /url: https://github.com/benjitaylor/agentation
+        - img [ref=e46]
+  - main [ref=e48]:
+    - article [ref=e49]:
+      - generic [ref=e50]:
+        - heading "Output" [level=1] [ref=e51]
+        - paragraph [ref=e52]: How Agentation structures feedback for AI agents
+      - generic [ref=e53]:
+        - paragraph [ref=e54]: "When you copy, you get structured markdown that agents can parse and act on. Four formats are available:"
+        - generic [ref=e55]:
+          - button "Compact" [ref=e56] [cursor=pointer]
+          - button "Standard" [ref=e57] [cursor=pointer]
+          - button "Detailed" [ref=e58] [cursor=pointer]
+          - button "Forensic" [ref=e59] [cursor=pointer]
+        - generic [ref=e61]:
+          - generic [ref=e62]: "## Page Feedback: /dashboard"
+          - generic [ref=e63]: "**Viewport:** 1512x738"
+          - generic [ref=e65]: "### 1. button.submit-btn"
+          - generic [ref=e66]: "**Location:** `.form-container > .actions > button.submit-btn`"
+          - generic [ref=e67]: "**Classes:** `submit-btn primary`"
+          - generic [ref=e68]: "**React:** `<App> <Dashboard> <FormActions> <SubmitButton>`"
+          - generic [ref=e69]: "**Position:** 450, 320 (120x40)"
+          - generic [ref=e70]: "**Feedback:** Button text should say \"Save\" not \"Submit\""
+          - generic [ref=e72]: "### 2. span.nav-label"
+          - generic [ref=e73]: "**Location:** `.sidebar > nav > .nav-item > span`"
+          - generic [ref=e74]: "**React:** `<App> <Sidebar> <NavItem>`"
+          - generic [ref=e75]: "**Selected:** \"Settigns\""
+          - generic [ref=e76]: "**Feedback:** Typo - should be \"Settings\""
+      - generic [ref=e77]:
+        - heading "When to use each format" [level=2] [ref=e78]
+        - list [ref=e79]:
+          - listitem [ref=e80]:
+            - strong [ref=e81]: Compact
+            - text: — Quick feedback with minimal context. Good for small fixes.
+          - listitem [ref=e82]:
+            - strong [ref=e83]: Standard
+            - text: — Balanced detail for most use cases. Includes location and classes.
+          - listitem [ref=e84]:
+            - strong [ref=e85]: Detailed
+            - text: — Full context with bounding boxes and nearby text. Good for complex issues.
+          - listitem [ref=e86]:
+            - strong [ref=e87]: Forensic
+            - text: — Maximum detail including computed styles. For debugging layout/style issues.
+      - generic [ref=e88]:
+        - heading "React component detection" [level=2] [ref=e89]
+        - paragraph [ref=e90]:
+          - text: In React apps, the output includes the component tree for each annotated element (e.g.,
+          - code [ref=e91]: <App> <Dashboard> <SubmitButton>
+          - text: "). The level of detail adapts to your output format: Compact omits React data, Standard shows filtered components, Detailed uses smart matching, and Forensic shows everything. Toggle React detection on/off in settings."
+      - generic [ref=e92]:
+        - heading "Why structured output?" [level=2] [ref=e93]
+        - paragraph [ref=e94]:
+          - text: Selectors and class names let agents
+          - code [ref=e95]: grep
+          - text: your codebase directly instead of guessing which element you mean. See
+          - link "how it works" [ref=e96] [cursor=pointer]:
+            - /url: /
+          - text: for more.
+      - generic [ref=e97]:
+        - heading "Customizing output" [level=2] [ref=e98]
+        - paragraph [ref=e99]: "The copied output is plain markdown. Feel free to edit it before pasting into your agent:"
+        - list [ref=e100]:
+          - listitem [ref=e101]:
+            - strong [ref=e102]: Add context
+            - text: — prepend with “I’m working on the dashboard page...”
+          - listitem [ref=e103]:
+            - strong [ref=e104]: Prioritize
+            - text: — reorder annotations by importance
+          - listitem [ref=e105]:
+            - strong [ref=e106]: Remove noise
+            - text: — delete annotations that aren’t relevant
+          - listitem [ref=e107]:
+            - strong [ref=e108]: Add instructions
+            - text: — append “Fix these issues and run the tests”
+    - generic [ref=e109]:
+      - paragraph [ref=e110]:
+        - text: Made by
+        - link "Benji Taylor" [ref=e111] [cursor=pointer]:
+          - /url: https://x.com/benjitaylor
+        - text: ","
+        - link "Dennis Jin" [ref=e112] [cursor=pointer]:
+          - /url: https://x.com/seldom
+        - text: ", and"
+        - link "Alex Vanderzon" [ref=e113] [cursor=pointer]:
+          - /url: https://x.com/alexvanderzon
+      - link "Colophon" [ref=e114] [cursor=pointer]:
+        - /url: /colophon
+  - alert [ref=e115]
+  - button "/agentation v2.1.1 Output Detail Standard React Components Marker Colour Purple Blue Cyan Green Yellow Orange Red Clear on copy/send Block page interactions Manage MCP & Webhooks Manage MCP & Webhooks MCP Connection MCP connection allows agents to receive and act on annotations. Learn more Webhooks Auto-Send The webhook URL will receive live annotation changes and annotation data." [ref=e116] [cursor=pointer]:
+    - img [ref=e118]
+    - generic [ref=e124]:
+      - button [ref=e126]:
+        - img [ref=e127]
+      - generic [ref=e131]:
+        - button [disabled]:
+          - img
+      - generic [ref=e132]:
+        - button [disabled]:
+          - img
+      - generic:
+        - button [disabled]:
+          - img
+      - generic [ref=e133]:
+        - button [disabled]:
+          - img
+      - button [ref=e135]:
+        - img [ref=e136]
+      - button [ref=e141]:
+        - img [ref=e142]
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic: /agentation
+            - generic: v2.1.1
+            - button "Switch to light mode":
+              - generic:
+                - generic:
+                  - img
+          - generic:
+            - generic:
+              - generic:
+                - text: Output Detail
+                - generic:
+                  - generic:
+                    - img
+              - button "Standard":
+                - generic: Standard
+            - generic:
+              - generic:
+                - text: React Components
+                - generic:
+                  - generic:
+                    - img
+              - generic:
+                - checkbox [disabled]
+          - generic:
+            - generic: Marker Colour
+            - generic:
+              - button "Purple":
+                - generic "Purple"
+              - button "Blue":
+                - generic "Blue"
+              - button "Cyan":
+                - generic "Cyan"
+              - button "Green":
+                - generic "Green"
+              - button "Yellow":
+                - generic "Yellow"
+              - button "Orange":
+                - generic "Orange"
+              - button "Red":
+                - generic "Red"
+          - generic:
+            - generic:
+              - checkbox "Clear on copy/send"
+              - generic:
+                - text: Clear on copy/send
+                - generic:
+                  - generic:
+                    - img
+            - generic:
+              - checkbox "Block page interactions" [checked]
+              - generic:
+                - img
+              - generic: Block page interactions
+          - generic:
+            - button "Manage MCP & Webhooks":
+              - generic: Manage MCP & Webhooks
+              - generic:
+                - img
+        - generic:
+          - button "Manage MCP & Webhooks":
+            - img
+            - generic: Manage MCP & Webhooks
+          - generic:
+            - generic:
+              - generic:
+                - text: MCP Connection
+                - generic:
+                  - generic:
+                    - img
+            - paragraph:
+              - text: MCP connection allows agents to receive and act on annotations.
+              - link "Learn more":
+                - /url: https://agentation.dev/mcp
+          - generic:
+            - generic:
+              - generic:
+                - text: Webhooks
+                - generic:
+                  - generic:
+                    - img
+              - generic:
+                - generic: Auto-Send
+                - generic:
+                  - checkbox [checked] [disabled]
+            - paragraph: The webhook URL will receive live annotation changes and annotation data.
+            - textbox "Webhook URL"

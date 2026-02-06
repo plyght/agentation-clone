@@ -95,7 +95,7 @@ export default function Home() {
             </ol>
             <p style={{ fontSize: "0.8125rem", color: "rgba(0, 0, 0, 0.55)", marginTop: "1rem" }}>
               <strong style={{ display: "inline", margin: "-0.04em -0.06em", padding: "0.04em 0.06em", borderRadius: "0.2em 0.15em", backgroundImage: "linear-gradient(75deg, rgba(250, 204, 21, 0.5), rgba(250, 204, 21, 0.15) 4%, rgba(250, 204, 21, 0.3) 96%, rgba(250, 204, 21, 0.6))" }}>Note:</strong> With{" "}
-              <a href="https://agentation.dev/mcp">MCP</a>, you can skip the
+              <a href="/mcp">MCP</a>, you can skip the
               copy-paste step entirely — your agent already sees what you&apos;re
               pointing at. Just say &ldquo;address my feedback&rdquo; or &ldquo;fix annotation 3.&rdquo;
             </p>
@@ -178,9 +178,9 @@ export default function Home() {
           <section>
             <h2>Agents talk back</h2>
             <p>
-              With <a href="https://agentation.dev/mcp">MCP integration</a> and
+              With <a href="/mcp">MCP integration</a> and
               the{" "}
-              <a href="https://agentation.dev/schema">
+              <a href="/schema">
                 Annotation Format Schema
               </a>
               , agents don't just read your annotations — they can respond to

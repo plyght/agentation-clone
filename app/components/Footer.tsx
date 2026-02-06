@@ -27,7 +27,7 @@ export default function Footer() {
           Alex Vanderzon
         </a>
       </p>
-      <a href="https://agentation.dev/colophon">Colophon</a>
+      <a href="/colophon">Colophon</a>
     </footer>
   );
 }

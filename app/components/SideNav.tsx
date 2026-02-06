@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import BunnyLogo from "./BunnyLogo";
 
 export default function SideNav() {
+  const pathname = usePathname();
   const [typedChars, setTypedChars] = useState<string[]>([]);
   const fullText = "agentation";
 
@@ -41,60 +43,60 @@ export default function SideNav() {
       </div>
       <div className="nav-links">
         <div className="nav-item-wrapper">
-          <a className="nav-link active" href="/">
+          <a className={`nav-link${pathname === "/" ? " active" : ""}`} href="/">
             Overview
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/install">
+          <a className={`nav-link${pathname === "/install" ? " active" : ""}`} href="/install">
             Install
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/features">
+          <a className={`nav-link${pathname === "/features" ? " active" : ""}`} href="/features">
             Features
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/output">
+          <a className={`nav-link${pathname === "/output" ? " active" : ""}`} href="/output">
             Output
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/schema">
+          <a className={`nav-link${pathname === "/schema" ? " active" : ""}`} href="/schema">
             Schema
             <span className="nav-badge">v1.0</span>
           </a>
         </div>
         <div className="nav-section">Tools</div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/mcp">
+          <a className={`nav-link${pathname === "/mcp" ? " active" : ""}`} href="/mcp">
             MCP
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/api">
+          <a className={`nav-link${pathname === "/api" ? " active" : ""}`} href="/api">
             API
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/webhooks">
+          <a className={`nav-link${pathname === "/webhooks" ? " active" : ""}`} href="/webhooks">
             Webhooks
           </a>
         </div>
         <div className="nav-section">Resources</div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/changelog">
+          <a className={`nav-link${pathname === "/changelog" ? " active" : ""}`} href="/changelog">
             Changelog
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/blog">
+          <a className={`nav-link${pathname.startsWith("/blog") ? " active" : ""}`} href="/blog">
             Blog
           </a>
         </div>
         <div className="nav-item-wrapper">
-          <a className="nav-link" href="/faq">
+          <a className={`nav-link${pathname === "/faq" ? " active" : ""}`} href="/faq">
             FAQ
           </a>
         </div>
