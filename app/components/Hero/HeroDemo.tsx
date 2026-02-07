@@ -49,9 +49,6 @@ export default function HeroDemo() {
       await new Promise((resolve) => setTimeout(resolve, 2000));
 
       setCurrentPhase(4);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-
-      runAnimation();
     };
 
     const typeCommand = async (command: string) => {
